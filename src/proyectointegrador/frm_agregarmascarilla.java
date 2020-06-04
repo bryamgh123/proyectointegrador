@@ -334,10 +334,10 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                 modelo.addRow(o);
                 modelo.setValueAt(lista.get(i).getIdBusq(), i, 0);
                 modelo.setValueAt(lista.get(i).getModeBusq(), i, 1);
-                modelo.setValueAt(lista.get(i).getCaraBusq(), i, 3);
-                modelo.setValueAt(lista.get(i).getColoBusq(), i, 4);
-                modelo.setValueAt(lista.get(i).getCantBusq(), i, 5);
-                modelo.setValueAt(lista.get(i).getPrecBusq(), i, 6);
+                modelo.setValueAt(lista.get(i).getCaraBusq(), i, 2);
+                modelo.setValueAt(lista.get(i).getColoBusq(), i, 3);
+                modelo.setValueAt(lista.get(i).getCantBusq(), i, 4);
+                modelo.setValueAt(lista.get(i).getPrecBusq(), i, 5);
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());

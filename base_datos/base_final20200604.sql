@@ -16,6 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `qrmascarilla`
+--
+
+DROP TABLE IF EXISTS `qrmascarilla`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `qrmascarilla` (
+  `correo_ven` int(11) NOT NULL,
+  `mode_busq` varchar(100) NOT NULL,
+  `cara_busq` varchar(100) NOT NULL,
+  PRIMARY KEY (`correo_ven`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrmascarilla`
+--
+
+LOCK TABLES `qrmascarilla` WRITE;
+/*!40000 ALTER TABLE `qrmascarilla` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrmascarilla` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tabla_busq_venta`
 --
 
@@ -57,6 +81,7 @@ CREATE TABLE `tabla_ventas` (
   `post_ven` varchar(45) NOT NULL,
   `dire_ven` varchar(45) NOT NULL,
   `id_busq` int(11) NOT NULL,
+  `correo_ven` varchar(45) NOT NULL,
   PRIMARY KEY (`dni_ven`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -108,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-04 12:12:08
+-- Dump completed on 2020-06-04 15:59:14
