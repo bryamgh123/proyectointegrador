@@ -176,15 +176,16 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
                     if (txt_correo.getText().length() > 0) {
                         if (txt_contra.getText().length() > 0) {
                             
-                            metodos.RegistrarFuncionario(txt_nom.getText(),txt_ape.getText(),txt_correo.getText(),txt_contra.getText());
+                            metodos.RegistrarFuncionario(txt_nom.getText(),txt_ape.getText(),txt_correo.getText(),txt_contra.getText());                         
+
+                            int i = metodos.guardar(txt_nom.getText(), txt_ape.getText(), txt_correo.getText(), txt_contra.getText());
                             frm_login abrir = new frm_login();
                                 abrir.setVisible(true);
                                 this.setVisible(false);
-
-                            int i = metodos.guardar(txt_nom.getText(), txt_ape.getText(), txt_correo.getText(), txt_contra.getText());
-                            if (i > 0) {
-                                
+                            if (i > 0) {                               
                                 JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
+                                
+                                
                             } 
                         } else {
                             JOptionPane.showMessageDialog(null, "Datos guardados incorrectaemnte \n ¡Ingrese Contraseña!");
