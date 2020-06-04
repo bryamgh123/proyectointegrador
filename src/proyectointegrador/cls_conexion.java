@@ -31,7 +31,7 @@ datos*/
     public cls_conexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Conec = DriverManager.getConnection("jdbc:mysql://Localhost:3307/proyectointegrador", "root", "");
+            Conec = DriverManager.getConnection("jdbc:mysql://Localhost:3307/base_final", "root", "");
             if (Conec != null) {
                 System.out.println();
                 System.out.println("Successfully connected");
