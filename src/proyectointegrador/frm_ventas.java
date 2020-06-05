@@ -429,7 +429,7 @@ public class frm_ventas extends javax.swing.JFrame {
         
      
 }
-        
+           
 
 
 
