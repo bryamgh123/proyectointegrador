@@ -90,6 +90,11 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Modelo", "Caracteristica" }));
 
         btn_busq.setText("Buscar");
+        btn_busq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_busqActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -386,6 +391,10 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_busqActionPerformed
     private void createmodelo() {
         try {
             modelo = (new DefaultTableModel(null, new String[]{"ID", "Modelo", "Caracteristica", "Color", "Cantidad", "Precio"}) {
