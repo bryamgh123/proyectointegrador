@@ -127,7 +127,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         txt_color.setEnabled(false);
 
-        jLabel8.setText("Cantidad :");
+        jLabel8.setText("Tamaño :");
 
         txt_.setEnabled(false);
 

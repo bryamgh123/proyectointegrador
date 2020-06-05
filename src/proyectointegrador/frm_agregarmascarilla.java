@@ -400,7 +400,9 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busqActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_btn_busqActionPerformed
     private void createmodelo() {
         try {

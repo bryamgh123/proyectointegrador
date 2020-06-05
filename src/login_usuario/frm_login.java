@@ -192,8 +192,14 @@ public class frm_login extends javax.swing.JFrame {
         String busquea_usuario = metodos.buscarUsuarioRegistrado(txt_correo.getText(), txt_contra.getText());
 
         if (txt_correo.getText().equals("root") && txt_contra.getText().equals("root")) {
-            JOptionPane.showMessageDialog(this, "Bienvenido iniciaste secion como root (Administrador)", "Inicio de Admin", JOptionPane.ERROR_MESSAGE);
-            frm_sistema ventana = new frm_sistema();
+
+            //JOptionPane.showMessageDialog(this, "Bienvenido iniciaste secion como root (Administrador)", "Inicio de Admin", JOptionPane.ERROR_MESSAGE);
+             final JOptionPane pane = new JOptionPane("Bienvenido Admin");
+            final JDialog d = pane.createDialog((JFrame) null, "Te damos la Bienvenida");
+            d.setLocation(233, 200);
+            d.setVisible(true);
+            
+            frm_admin_sistema ventana = new frm_admin_sistema();
             ventana.lbl_nombre.setText(" Administrador");
             ventana.setVisible(true);
             this.dispose();
