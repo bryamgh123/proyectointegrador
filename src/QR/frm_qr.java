@@ -72,7 +72,6 @@ public class frm_qr extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         lblcodigoQR = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        qrcodigo = new javax.swing.JLabel();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -109,9 +108,6 @@ public class frm_qr extends javax.swing.JDialog {
 
         jLabel1.setText("Este es el codigo QR de tu mascarilla:");
 
-        qrcodigo.setText("cedula:");
-        qrcodigo.setEnabled(false);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,10 +126,6 @@ public class frm_qr extends javax.swing.JDialog {
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(qrcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, okButton});
@@ -143,9 +135,7 @@ public class frm_qr extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(3, 3, 3)
-                .addComponent(qrcodigo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -169,9 +159,9 @@ public class frm_qr extends javax.swing.JDialog {
 
 public  void GenerarCodigoQR()
 {
-	ByteArrayOutputStream out=QRCode.from(this.qrcodigo.getText()).to(ImageType.PNG).stream();
-	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
-	this.lblcodigoQR.setIcon(imageIcon);
+	//ByteArrayOutputStream out=QRCode.from(this.aqui_llamar_el_texto_de_la_otra_tabla.getText()).to(ImageType.PNG).stream();
+	//ImageIcon imageIcon=new ImageIcon(out.toByteArray());
+	//this.lblcodigoQR.setIcon(imageIcon);
 }
 
     
@@ -253,7 +243,6 @@ public  void GenerarCodigoQR()
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblcodigoQR;
     private javax.swing.JButton okButton;
-    private javax.swing.JLabel qrcodigo;
     // End of variables declaration//GEN-END:variables
 
     private int returnStatus = RET_CANCEL;
