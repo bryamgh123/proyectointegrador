@@ -143,7 +143,7 @@ public class frm_estructura extends javax.swing.JFrame {
 
 //este llama a el frm_ventas para jenerar la compra
 
-        frm_ventas karde = new frm_ventas(new javax.swing.JFrame(),true);
+        frm_ventas karde = new frm_ventas();
         
         karde.setVisible(true);
         

@@ -504,9 +504,9 @@ public class frm_ventas extends javax.swing.JFrame {
 
        //este llama a el frm_qr para jenerar el qr 
         QR.frm_qr kardex = new QR.frm_qr(new javax.swing.JFrame(),true);
-        
+         kardex.setVisible(true);
 
-}
+
            
 
       
@@ -514,6 +514,7 @@ public class frm_ventas extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_comprarActionPerformed
     private static boolean ban = false;
+
     private void Guardar_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_agregarActionPerformed
         try {
             if (txt_dni.getText().length() > 0) {
@@ -567,10 +568,11 @@ public class frm_ventas extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
 
-        }
+}
+
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
-    
+
 
     /**
      * @param args the command line arguments
