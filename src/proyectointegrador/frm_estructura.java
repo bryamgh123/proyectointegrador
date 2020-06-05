@@ -41,6 +41,11 @@ public class frm_estructura extends javax.swing.JFrame {
         jLabel1.setText("Mascarilla INT");
 
         jButton1.setText("registrarse");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,14 +148,21 @@ public class frm_estructura extends javax.swing.JFrame {
 
 //este llama a el frm_ventas para jenerar la compra
 
-        frm_ventas karde = new frm_ventas(new javax.swing.JFrame(),true);
+        frm_ventas karde = new frm_ventas();
         
         karde.setVisible(true);
+        this.setVisible(false);
         
 
 
         // TODO add your handling code here:
     }//GEN-LAST:event_comprarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        login_usuario.frm_menu kardex = new login_usuario.frm_menu();
+         kardex.setVisible(true);
+         this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

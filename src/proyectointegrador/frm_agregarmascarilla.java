@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author ACER
  */
 public class frm_agregarmascarilla extends javax.swing.JFrame {
-
+    
     public static DefaultTableModel modelo;
     Controladores.TablaBusqVentaJpaController aggmasca = new Controladores.TablaBusqVentaJpaController();
 
@@ -54,6 +54,8 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txt_mode = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txt_id = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -129,13 +131,15 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
 
         jLabel3.setText("Modelo :");
 
-        jLabel4.setText("Cantidad :");
+        jLabel4.setText("Tamaño :");
 
         jLabel5.setText("Caracteristicas :");
 
         jLabel7.setText("Color :");
 
         jLabel8.setText("Precio :");
+
+        jLabel2.setText("ID:");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -155,11 +159,13 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_prec)
-                    .addComponent(txt_cant))
+                    .addComponent(txt_cant)
+                    .addComponent(txt_id))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -186,7 +192,11 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(txt_prec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_prec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
@@ -290,17 +300,103 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     private void txt_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_busqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_busqActionPerformed
-
+ private void Clear() {
+        txt_mode.setText("");
+        txt_cara.setText("");
+        txt_colo.setText("");
+        txt_cant.setText("");
+        txt_prec.setText("");
+        txt_id.setText("");
+ 
+    }
+ 
+    private static boolean ban = false;
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        // TODO add your handling code here:
+       
+        try {
+            if (txt_mode.getText().length() > 0) {
+                if (txt_cara.getText().length() > 0) {
+                    
+                    if (ban == false) {
+                        TablaBusqVenta obj = new TablaBusqVenta();
+                        
+                        obj.setIdBusq(Integer.parseInt(txt_id.getText()));
+                        obj.setModeBusq(txt_mode.getText());
+                        obj.setCaraBusq(txt_cara.getText());
+                        obj.setColoBusq(txt_colo.getText());
+                        obj.setCantBusq(txt_cant.getText());
+                        obj.setPrecBusq(txt_prec.getText());
+                        
+                        
+                        createmodelo();
+                         aggmasca.create(obj);
+                        cargar_informacion();
+                        Clear();
+                    }
+                    if (ban == true) {
+                        TablaBusqVenta obj = new TablaBusqVenta();
+                        
+                        obj.setIdBusq(Integer.parseInt(txt_id.getText()));
+                        obj.setModeBusq(txt_mode.getText());
+                        obj.setCaraBusq(txt_cara.getText());
+                        obj.setColoBusq(txt_colo.getText());
+                        obj.setCantBusq(txt_cant.getText());
+                        obj.setPrecBusq(txt_prec.getText());
+                        aggmasca.edit(obj);
+                        
+                        createmodelo();
+                        cargar_informacion();
+ 
+                        ban = false;
+                        Clear();
+                    }
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingresela nombre");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingresela cedula");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
+
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
-        // TODO add your handling code here:
+        try {
+            
+            if (tabla.getSelectedRow() >= 0) {
+                txt_id.setText(tabla.getValueAt(tabla.getSelectedRow(), 0).toString());
+                txt_mode.setText(tabla.getValueAt(tabla.getSelectedRow(), 1).toString());
+                txt_cara.setText(tabla.getValueAt(tabla.getSelectedRow(), 2).toString());
+                txt_colo.setText(tabla.getValueAt(tabla.getSelectedRow(), 3).toString());
+                txt_cant.setText(tabla.getValueAt(tabla.getSelectedRow(), 4).toString());
+                txt_prec.setText(tabla.getValueAt(tabla.getSelectedRow(), 5).toString());
+
+                ban = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_btn_editarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (tabla.getSelectedRow() >= 0) {
+                
+                aggmasca.destroy(Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString()));
+                createmodelo();
+                cargar_informacion();
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            
+        }
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busqActionPerformed
@@ -318,12 +414,12 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                     java.lang.String.class
                 };
                 boolean[] canEdit = new boolean[]{false, false, false, false, false, false};
-
+                
                 @Override
                 public Class getColumnClass(int columnindex) {
                     return types[columnindex];
                 }
-
+                
                 @Override
                 public boolean isCellEditable(int rowindex, int colindex) {
                     return canEdit[colindex];
@@ -334,7 +430,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.toString() + "error2");
         }
     }
-
+    
     private void cargar_informacion() {
         try {
             Object[] o = null;
@@ -396,6 +492,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -411,6 +508,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     private javax.swing.JTextField txt_cant;
     private javax.swing.JTextField txt_cara;
     private javax.swing.JTextField txt_colo;
+    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_mode;
     private javax.swing.JTextField txt_prec;
     // End of variables declaration//GEN-END:variables
