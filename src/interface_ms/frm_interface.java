@@ -5,6 +5,8 @@
  */
 package interface_ms;
 
+
+
 /**
  *
  * @author Bryan
@@ -27,7 +29,7 @@ public class frm_interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        cerrar_cesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -37,12 +39,17 @@ public class frm_interface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        masinformacion1 = new javax.swing.JButton();
+        masinformacion2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("cerrar cesion");
+        cerrar_cesion.setText("cerrar cesion");
+        cerrar_cesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrar_cesionActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("nombre del ususario:");
 
@@ -62,17 +69,17 @@ public class frm_interface extends javax.swing.JFrame {
 
         jTextField2.setText("jTextField1");
 
-        jButton2.setText("mas informacion");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        masinformacion1.setText("mas informacion");
+        masinformacion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                masinformacion1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("mas informacion");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        masinformacion2.setText("mas informacion");
+        masinformacion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                masinformacion2ActionPerformed(evt);
             }
         });
 
@@ -86,7 +93,7 @@ public class frm_interface extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(cerrar_cesion))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -109,8 +116,8 @@ public class frm_interface extends javax.swing.JFrame {
                                             .addComponent(jTextField1))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton2)
-                                            .addComponent(jButton3))))))
+                                            .addComponent(masinformacion1)
+                                            .addComponent(masinformacion2))))))
                         .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -121,10 +128,10 @@ public class frm_interface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3))
+                        .addComponent(masinformacion2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(cerrar_cesion)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +147,7 @@ public class frm_interface extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(masinformacion1, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,13 +158,45 @@ public class frm_interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void masinformacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masinformacion1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+   frm_informacion1 karde = new frm_informacion1();
+        
+        karde.setVisible(true);
+      
+        
+
+
+
+
+    }//GEN-LAST:event_masinformacion1ActionPerformed
+
+    private void masinformacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masinformacion2ActionPerformed
+       
+        
+
+           frm_informacion2 karde = new frm_informacion2();
+        
+        karde.setVisible(true);
+      
+        
+
+
+    }//GEN-LAST:event_masinformacion2ActionPerformed
+
+    private void cerrar_cesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrar_cesionActionPerformed
+    
+        
+           proyectointegrador.frm_estructura karde = new  proyectointegrador.frm_estructura();
+        
+        karde.setVisible(true);
+       this.setVisible(false);
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_cerrar_cesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,9 +234,7 @@ public class frm_interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton cerrar_cesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -207,5 +244,7 @@ public class frm_interface extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton masinformacion1;
+    private javax.swing.JButton masinformacion2;
     // End of variables declaration//GEN-END:variables
 }
