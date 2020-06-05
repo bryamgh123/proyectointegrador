@@ -301,7 +301,13 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_busqActionPerformed
  private void Clear() {
-        
+        txt_mode.setText("");
+        txt_cara.setText("");
+        txt_colo.setText("");
+        txt_cant.setText("");
+        txt_prec.setText("");
+        txt_id.setText("");
+ 
     }
  
     private static boolean ban = false;
@@ -320,9 +326,10 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                         obj.setColoBusq(txt_colo.getText());
                         obj.setCantBusq(txt_cant.getText());
                         obj.setPrecBusq(txt_prec.getText());
-                        aggmasca.create(obj);
+                        
                         
                         createmodelo();
+                         aggmasca.create(obj);
                         cargar_informacion();
                         Clear();
                     }
@@ -339,7 +346,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                         
                         createmodelo();
                         cargar_informacion();
-                        
+ 
                         ban = false;
                         Clear();
                     }

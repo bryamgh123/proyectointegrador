@@ -167,6 +167,10 @@ public  void GenerarCodigoQR()
     
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+       proyectointegrador.frm_estructura ventana = new proyectointegrador.frm_estructura();
+            ventana.setVisible(true);
+            
+            
         doClose(RET_OK);
     }//GEN-LAST:event_okButtonActionPerformed
 
