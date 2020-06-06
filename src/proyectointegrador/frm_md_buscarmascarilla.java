@@ -54,8 +54,10 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
             }
         });
         
+
        cls_metodos obj= new cls_metodos();
        obj.CargarDatos(tabla);
+
        
     }
 
