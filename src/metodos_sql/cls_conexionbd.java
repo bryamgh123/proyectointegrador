@@ -14,7 +14,7 @@ import java.sql.DriverManager;
  */
 public class cls_conexionbd {
                              //jdbc:mysql://Localhost:3307/trabajo"
-    public static String url = "jdbc:mysql://Localhost:3307/base_final";
+    public static String url = "jdbc:mysql://Localhost/base_final";
     public static String usuario = "root";
     public static String contraseña = "";
     public static String clase = "com.mysql.jdbc.Driver";

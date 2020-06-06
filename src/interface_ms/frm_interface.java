@@ -5,7 +5,12 @@
  */
 package interface_ms;
 
-
+import java.awt.Toolkit;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  *
@@ -158,44 +163,75 @@ public class frm_interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //mensaje aleatorios para cada 1 min
+    public class BeepClock implements Runnable {
+
+        public void run() {
+            System.out.println("Revisar los filtros");
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }
+
+    public void ejecutable() {
+        ScheduledExecutorService scheduler
+                = Executors.newSingleThreadScheduledExecutor();
+
+        Runnable task = new BeepClock();
+        int initialDelay = 1;
+        int periodicDelay = 1;
+        scheduler.scheduleAtFixedRate(task, initialDelay, periodicDelay,
+                TimeUnit.MINUTES
+        );
+    }
+
+    class BeeperControl {
+
+        private final ScheduledExecutorService scheduler
+                = Executors.newScheduledThreadPool(1);
+
+        public void beepForAnHour() {
+            final Runnable beeper = new Runnable() {
+                public void run() {
+                    System.out.println("Revisar los filtros");
+                }
+            };
+            final ScheduledFuture<?> beeperHandle
+                    = scheduler.scheduleAtFixedRate(beeper, 10, 10, SECONDS);
+            scheduler.schedule(new Runnable() {
+                public void run() {
+                    beeperHandle.cancel(true);
+                }
+            }, 60 * 60, SECONDS);
+        }
+    }
+
+
     private void masinformacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masinformacion1ActionPerformed
 
-   frm_informacion1 karde = new frm_informacion1();
-        
+        frm_informacion1 karde = new frm_informacion1();
+
         karde.setVisible(true);
-      
-        
-
-
 
 
     }//GEN-LAST:event_masinformacion1ActionPerformed
 
     private void masinformacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masinformacion2ActionPerformed
-       
-        
 
-           frm_informacion2 karde = new frm_informacion2();
-        
+        frm_informacion2 karde = new frm_informacion2();
+
         karde.setVisible(true);
-      
-        
 
 
     }//GEN-LAST:event_masinformacion2ActionPerformed
 
     private void cerrar_cesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrar_cesionActionPerformed
-    
-        
-           proyectointegrador.frm_estructura karde = new  proyectointegrador.frm_estructura();
-        
+
+        proyectointegrador.frm_estructura karde = new proyectointegrador.frm_estructura();
+
         karde.setVisible(true);
-       this.setVisible(false);
-        
-        
-        
-        
-        
+        this.setVisible(false);
+
+
     }//GEN-LAST:event_cerrar_cesionActionPerformed
 
     /**
