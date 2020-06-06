@@ -49,6 +49,7 @@ public class frm_qr extends javax.swing.JDialog {
                 doClose(RET_CANCEL);
             }
         });
+        GenerarCodigoQR();
     }
 
     /**
@@ -109,8 +110,7 @@ public class frm_qr extends javax.swing.JDialog {
 
         jLabel1.setText("Este es el codigo QR de tu mascarilla:");
 
-        txt_correo.setText("hola");
-        txt_correo.setEnabled(false);
+        txt_correo.setText("hola pa como esta todo bn");
         txt_correo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_correoActionPerformed(evt);
@@ -135,7 +135,7 @@ public class frm_qr extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -176,6 +176,8 @@ public  void GenerarCodigoQR()
 	ByteArrayOutputStream out=QRCode.from(this.txt_correo.getText()).to(ImageType.PNG).stream();
 	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
 	this.lblcodigoQR.setIcon(imageIcon);
+       
+        txt_correo.setVisible(false);
         
 }
 

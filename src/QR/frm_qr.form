@@ -40,7 +40,7 @@
                                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="txt_correo" alignment="0" min="-2" pref="0" max="-2" attributes="0"/>
+                          <Component id="txt_correo" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -117,8 +117,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_correo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="hola"/>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="hola pa como esta todo bn"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_correoActionPerformed"/>
