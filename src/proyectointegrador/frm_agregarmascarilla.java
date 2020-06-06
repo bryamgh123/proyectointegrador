@@ -216,6 +216,11 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabla);
 
         btn_regresar.setText("Regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
 
         btn_editar.setText("Editar");
         btn_editar.addActionListener(new java.awt.event.ActionListener() {
@@ -404,6 +409,12 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btn_busqActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+       login_usuario.frm_menu_administrar ventana = new login_usuario.frm_menu_administrar();
+       ventana.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btn_regresarActionPerformed
     private void createmodelo() {
         try {
             modelo = (new DefaultTableModel(null, new String[]{"ID", "Modelo", "Caracteristica", "Color", "Cantidad", "Precio"}) {

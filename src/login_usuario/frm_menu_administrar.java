@@ -29,20 +29,35 @@ public class frm_menu_administrar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_añadir_mascarilla = new javax.swing.JButton();
+        btn_usuarios = new javax.swing.JButton();
+        btn_ventas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Elije que quieres administar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
-        jButton1.setText("Añadir nuevas mascarilllas");
+        btn_añadir_mascarilla.setText("Añadir nuevas mascarilllas");
+        btn_añadir_mascarilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_añadir_mascarillaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Administar usuarios");
+        btn_usuarios.setText("Administar usuarios");
+        btn_usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_usuariosActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Administrar ventas");
+        btn_ventas.setText("Administrar ventas");
+        btn_ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ventasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -53,22 +68,22 @@ public class frm_menu_administrar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2))
+                            .addComponent(btn_ventas)
+                            .addComponent(btn_usuarios))
                         .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btn_añadir_mascarilla)
                         .addGap(22, 22, 22))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btn_añadir_mascarilla)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btn_usuarios)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btn_ventas)
                 .addGap(14, 14, 14))
         );
 
@@ -91,6 +106,26 @@ public class frm_menu_administrar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_añadir_mascarillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_añadir_mascarillaActionPerformed
+        proyectointegrador.frm_agregarmascarilla ventana= new proyectointegrador.frm_agregarmascarilla();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_añadir_mascarillaActionPerformed
+
+    private void btn_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuariosActionPerformed
+      proyectointegrador.frm_admin_usuarios ventana= new proyectointegrador.frm_admin_usuarios();
+        ventana.setVisible(true);
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_btn_usuariosActionPerformed
+
+    private void btn_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventasActionPerformed
+proyectointegrador.frm_admin_ventas ventana= new proyectointegrador.frm_admin_ventas();
+        ventana.setVisible(true);
+        this.dispose();        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btn_ventasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,9 +163,9 @@ public class frm_menu_administrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btn_añadir_mascarilla;
+    private javax.swing.JButton btn_usuarios;
+    private javax.swing.JButton btn_ventas;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
