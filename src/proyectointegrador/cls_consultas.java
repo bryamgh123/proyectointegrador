@@ -19,10 +19,10 @@ public class cls_consultas {
         if (NomTabla.equals("Tabla")) {
             obj.CargarTabla(InstruccionSQL,  Tabla);
         }
-        if (NomTabla.equals("Modelo")) {
+        if (NomTabla.equals("ID")) {
             obj.CargarTabla(InstruccionSQL, Tabla);
         }
-        if (NomTabla.equals("Caracteristica")) {
+        if (NomTabla.equals("Modelos")) {
             obj.CargarTabla(InstruccionSQL, Tabla);
         }
         

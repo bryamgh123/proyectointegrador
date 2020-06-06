@@ -129,10 +129,10 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
         cancelButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btn_buscar = new javax.swing.JButton();
+        txt_busq = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbx_iten = new javax.swing.JComboBox();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -167,17 +167,22 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tabla);
 
-        jButton1.setText("Buscar");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                btn_buscarActionPerformed(evt);
+            }
+        });
+
+        txt_busq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_busqActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Tipo :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "ID", "Modelo" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,11 +198,11 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1))
+                                .addComponent(btn_buscar))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,9 +218,9 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_buscar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
@@ -233,7 +238,12 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
          if (tabla.getSelectedRow() >= 0) {
                 setId_busq(Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString()));
-                //set(tabla.getValueAt(tabla.getSelectedRow(), 1).toString());
+                setMode_busq(tabla.getValueAt(tabla.getSelectedRow(), 1).toString());
+                setCara_busq(tabla.getValueAt(tabla.getSelectedRow(), 2).toString());
+                setColo_busq(tabla.getValueAt(tabla.getSelectedRow(), 3).toString());
+                setCant_busq(tabla.getValueAt(tabla.getSelectedRow(), 4).toString());
+                setPrecio_busq(tabla.getValueAt(tabla.getSelectedRow(), 5).toString());
+                
                  doClose(RET_OK);
                 
             } else {
@@ -254,9 +264,26 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
         doClose(RET_CANCEL);
     }//GEN-LAST:event_closeDialog
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txt_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_busqActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txt_busqActionPerformed
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+       cls_consultas obj = new cls_consultas(); 
+        if (cbx_iten.getSelectedItem().equals("Todos")) {
+            obj.Consulta("Tabla", tabla, "SELECT id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio  from tabla_busq_venta;");
+        }
+        if (cbx_iten.getSelectedItem().equals("ID")) {
+            obj.Consulta("ID", tabla, "SELECT  id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio from tabla_busq_venta Where id_busq like '%" + txt_busq.getText() + "%'");
+        }
+        if (cbx_iten.getSelectedItem().equals("Modelo")) {
+            obj.Consulta("Modelos", tabla, "SELECT  id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio from tabla_busq_venta Where id_busq like '%" + txt_busq.getText() + "%'");
+        }
+
+
+
+
+    }//GEN-LAST:event_btn_buscarActionPerformed
     
     private void doClose(int retStatus) {
         returnStatus = retStatus;
@@ -307,14 +334,14 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cbx_iten;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton okButton;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txt_busq;
     // End of variables declaration//GEN-END:variables
 
     private int returnStatus = RET_CANCEL;

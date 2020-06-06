@@ -129,9 +129,6 @@ public class TablaBusqVenta implements Serializable {
         return "proyectointegrador.TablaBusqVenta[ idBusq=" + idBusq + " ]";
     }
     
-    proyectointegrador.cls_conexion obj= new proyectointegrador.cls_conexion();
-    public void CargarDatos(JTable Tabla) {
-        obj.CargarTabla("SELECT id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio  from base_final;", Tabla);
-    }   
+     
     
 }
