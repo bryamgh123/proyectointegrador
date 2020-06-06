@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.swing.JTable;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -127,5 +128,10 @@ public class TablaBusqVenta implements Serializable {
     public String toString() {
         return "proyectointegrador.TablaBusqVenta[ idBusq=" + idBusq + " ]";
     }
+    
+    proyectointegrador.cls_conexion obj= new proyectointegrador.cls_conexion();
+    public void CargarDatos(JTable Tabla) {
+        obj.CargarTabla("SELECT id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio  from base_final;", Tabla);
+    }   
     
 }

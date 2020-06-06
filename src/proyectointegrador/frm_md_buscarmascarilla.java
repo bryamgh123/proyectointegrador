@@ -11,6 +11,7 @@ import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
@@ -28,6 +29,13 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
      */
     public static final int RET_OK = 1;
 
+     private int id_busq;
+    private String mode_busq;
+    private String cara_busq;
+    private String colo_busq;
+    private String cant_busq;
+    private String precio_busq;
+    
     /**
      * Creates new form frm_md_buscarmascarilla
      */
@@ -45,6 +53,10 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                 doClose(RET_CANCEL);
             }
         });
+        
+       Entidades.TablaBusqVenta obj= new Entidades.TablaBusqVenta();
+       obj.CargarDatos(tabla);
+       
     }
 
     /**
@@ -53,6 +65,56 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     public int getReturnStatus() {
         return returnStatus;
     }
+
+    public int getId_busq() {
+        return id_busq;
+    }
+
+    public void setId_busq(int id_busq) {
+        this.id_busq = id_busq;
+    }
+
+    public String getMode_busq() {
+        return mode_busq;
+    }
+
+    public void setMode_busq(String mode_busq) {
+        this.mode_busq = mode_busq;
+    }
+
+    public String getCara_busq() {
+        return cara_busq;
+    }
+
+    public void setCara_busq(String cara_busq) {
+        this.cara_busq = cara_busq;
+    }
+
+    public String getColo_busq() {
+        return colo_busq;
+    }
+
+    public void setColo_busq(String colo_busq) {
+        this.colo_busq = colo_busq;
+    }
+
+    public String getCant_busq() {
+        return cant_busq;
+    }
+
+    public void setCant_busq(String cant_busq) {
+        this.cant_busq = cant_busq;
+    }
+
+    public String getPrecio_busq() {
+        return precio_busq;
+    }
+
+    public void setPrecio_busq(String precio_busq) {
+        this.precio_busq = precio_busq;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,7 +128,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -92,7 +154,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -103,7 +165,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
         jButton1.setText("Buscar");
 
@@ -123,21 +185,24 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cancelButton)))))
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, okButton});
@@ -153,11 +218,11 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
                     .addComponent(okButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getRootPane().setDefaultButton(okButton);
@@ -166,6 +231,15 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+         if (tabla.getSelectedRow() >= 0) {
+                setId_busq(Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString()));
+                //set(tabla.getValueAt(tabla.getSelectedRow(), 1).toString());
+                 doClose(RET_OK);
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila");
+            }
+        
         doClose(RET_OK);
     }//GEN-LAST:event_okButtonActionPerformed
 
@@ -238,9 +312,9 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton okButton;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 
     private int returnStatus = RET_CANCEL;
