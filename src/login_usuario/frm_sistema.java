@@ -57,6 +57,11 @@ public class frm_sistema extends javax.swing.JFrame {
         });
 
         jButton2.setText("Entrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,6 +117,22 @@ public class frm_sistema extends javax.swing.JFrame {
       ventana.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_btt_regresarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+             interface_ms.frm_interface karde = new  interface_ms.frm_interface();
+        
+        karde.setVisible(true);
+       this.setVisible(false);
+        
+
+
+
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

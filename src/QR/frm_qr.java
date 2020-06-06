@@ -72,6 +72,7 @@ public class frm_qr extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         lblcodigoQR = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        txt_correo = new javax.swing.JTextField();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -108,6 +109,14 @@ public class frm_qr extends javax.swing.JDialog {
 
         jLabel1.setText("Este es el codigo QR de tu mascarilla:");
 
+        txt_correo.setText("hola");
+        txt_correo.setEnabled(false);
+        txt_correo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_correoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,10 +129,13 @@ public class frm_qr extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cancelButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -135,7 +147,9 @@ public class frm_qr extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(1, 1, 1)
+                .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -159,9 +173,10 @@ public class frm_qr extends javax.swing.JDialog {
 
 public  void GenerarCodigoQR()
 {
-	//ByteArrayOutputStream out=QRCode.from(this.aqui_llamar_el_texto_de_la_otra_tabla.getText()).to(ImageType.PNG).stream();
-	//ImageIcon imageIcon=new ImageIcon(out.toByteArray());
-	//this.lblcodigoQR.setIcon(imageIcon);
+	ByteArrayOutputStream out=QRCode.from(this.txt_correo.getText()).to(ImageType.PNG).stream();
+	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
+	this.lblcodigoQR.setIcon(imageIcon);
+        
 }
 
     
@@ -189,6 +204,10 @@ public  void GenerarCodigoQR()
     private void closeDialog(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_closeDialog
         doClose(RET_CANCEL);
     }//GEN-LAST:event_closeDialog
+
+    private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_correoActionPerformed
     
     private void doClose(int retStatus) {
         returnStatus = retStatus;
@@ -247,6 +266,7 @@ public  void GenerarCodigoQR()
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblcodigoQR;
     private javax.swing.JButton okButton;
+    private javax.swing.JTextField txt_correo;
     // End of variables declaration//GEN-END:variables
 
     private int returnStatus = RET_CANCEL;
