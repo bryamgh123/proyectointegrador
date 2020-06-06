@@ -54,9 +54,8 @@ public class cls_metodos {
           sentencia_preparada = conexion.prepareCall(sentencia_buscar);
           resultado = sentencia_preparada.executeQuery();
           if(resultado.next()){
-              String nombre = resultado.getString("nombre");
-              String apellidos = resultado.getString("apellidos");
-              busqueda_nombre = (nombre + " " +apellidos);
+              String nombre = resultado.getString("nombre");              
+              busqueda_nombre = (nombre);
               
           }
           conexion.close();

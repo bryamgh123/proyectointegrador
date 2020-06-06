@@ -35,7 +35,7 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_nom = new javax.swing.JTextField();
+        txt_nick = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -51,10 +51,15 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        txt_nom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txt_nick.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txt_nick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nickActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel1.setText("Nombre:");
+        jLabel1.setText("Nick:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel3.setText("Apellido:");
@@ -111,15 +116,20 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
                                 .addGap(91, 91, 91)
                                 .addComponent(jLabel7))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_nom)
+                                    .addComponent(txt_nick)
                                     .addComponent(txt_ape)
                                     .addComponent(txt_correo)
                                     .addComponent(txt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -139,7 +149,7 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -171,14 +181,14 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
 
     private void btt_guarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_guarActionPerformed
         try {
-            if (txt_nom.getText().length() > 0) {
+            if (txt_nick.getText().length() > 0) {
                 if (txt_ape.getText().length() > 0) {
                     if (txt_correo.getText().length() > 0) {
                         if (txt_contra.getText().length() > 0) {
                             
-                            metodos.RegistrarFuncionario(txt_nom.getText(),txt_ape.getText(),txt_correo.getText(),txt_contra.getText());                         
+                            metodos.RegistrarFuncionario(txt_nick.getText(),txt_ape.getText(),txt_correo.getText(),txt_contra.getText());                         
 
-                            int i = metodos.guardar(txt_nom.getText(), txt_ape.getText(), txt_correo.getText(), txt_contra.getText());
+                            int i = metodos.guardar(txt_nick.getText(), txt_ape.getText(), txt_correo.getText(), txt_contra.getText());
                             
                             frm_login abrir = new frm_login();
                                 abrir.setVisible(true);
@@ -199,7 +209,7 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Datos guardados incorrectaemnte \n ¡Ingrese Apellido!");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Datos guardados incorrectaemnte \n ¡Ingrese Nombre!");
+                JOptionPane.showMessageDialog(null, "Datos guardados incorrectaemnte \n ¡Ingrese Nick!");
             }
 
         } catch (Exception ex) {
@@ -207,6 +217,10 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btt_guarActionPerformed
+
+    private void txt_nickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nickActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nickActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,6 +269,6 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
     private javax.swing.JTextField txt_ape;
     private javax.swing.JPasswordField txt_contra;
     private javax.swing.JTextField txt_correo;
-    private javax.swing.JTextField txt_nom;
+    private javax.swing.JTextField txt_nick;
     // End of variables declaration//GEN-END:variables
 }

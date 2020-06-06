@@ -41,7 +41,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         txt_busq = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        cbx_item = new javax.swing.JComboBox();
+        cbx_iten = new javax.swing.JComboBox();
         btn_busq = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         txt_cara = new javax.swing.JTextField();
@@ -87,7 +87,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
 
         jLabel1.setText("Tipo :");
 
-        cbx_item.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Modelo", "Caracteristica" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "ID", "Modelos" }));
 
         btn_busq.setText("Buscar");
         btn_busq.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +106,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                     .addGap(17, 17, 17)
                     .addComponent(jLabel1)
                     .addGap(18, 18, 18)
-                    .addComponent(cbx_item, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                     .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
@@ -121,7 +121,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                     .addGap(19, 19, 19)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(cbx_item, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_busq))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -405,7 +405,16 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busqActionPerformed
-      
+cls_consultas obj = new cls_consultas(); 
+        if (cbx_iten.getSelectedItem().equals("Todos")) {
+            obj.Consulta("Tabla", tabla, "SELECT id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio  from tabla_busq_venta;");
+        }
+        if (cbx_iten.getSelectedItem().equals("ID")) {
+            obj.Consulta("ID", tabla, "SELECT  id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio from tabla_busq_venta Where id_busq like '%" + txt_busq.getText() + "%'");
+        }
+        if (cbx_iten.getSelectedItem().equals("Modelos")) {
+            obj.Consulta("Modelos", tabla, "SELECT  id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio from tabla_busq_venta Where mode_busq like '%" + txt_busq.getText() + "%'");
+        }      
         
         
     }//GEN-LAST:event_btn_busqActionPerformed
@@ -503,7 +512,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_regresar;
-    private javax.swing.JComboBox cbx_item;
+    private javax.swing.JComboBox cbx_iten;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

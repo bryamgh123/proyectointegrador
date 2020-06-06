@@ -25,6 +25,15 @@ public class cls_consultas {
         if (NomTabla.equals("Modelos")) {
             obj.CargarTabla(InstruccionSQL, Tabla);
         }
+        if (NomTabla.equals("Nombre")) {
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Correo")) {
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Apellido")) {
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
         
         return Tabla;
     }
