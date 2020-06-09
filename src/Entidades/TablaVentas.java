@@ -29,8 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TablaVentas.findByCiudVen", query = "SELECT t FROM TablaVentas t WHERE t.ciudVen = :ciudVen"),
     @NamedQuery(name = "TablaVentas.findByPostVen", query = "SELECT t FROM TablaVentas t WHERE t.postVen = :postVen"),
     @NamedQuery(name = "TablaVentas.findByDireVen", query = "SELECT t FROM TablaVentas t WHERE t.direVen = :direVen"),
-    @NamedQuery(name = "TablaVentas.findByIdBusq", query = "SELECT t FROM TablaVentas t WHERE t.idBusq = :idBusq"),
-    @NamedQuery(name = "TablaVentas.findByCorreoVen", query = "SELECT t FROM TablaVentas t WHERE t.correoVen = :correoVen")})
+    @NamedQuery(name = "TablaVentas.findByIdBusq", query = "SELECT t FROM TablaVentas t WHERE t.idBusq = :idBusq")})
 public class TablaVentas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,9 +52,6 @@ public class TablaVentas implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_busq")
     private int idBusq;
-    @Basic(optional = false)
-    @Column(name = "correo_ven")
-    private String correoVen;
 
     public TablaVentas() {
     }
@@ -64,14 +60,14 @@ public class TablaVentas implements Serializable {
         this.dniVen = dniVen;
     }
 
-    public TablaVentas(Integer dniVen, String paisVen, String ciudVen, String postVen, String direVen, int idBusq, String correoVen) {
+    public TablaVentas(Integer dniVen, String paisVen, String ciudVen, String postVen, String direVen, int idBusq) {
         this.dniVen = dniVen;
         this.paisVen = paisVen;
         this.ciudVen = ciudVen;
         this.postVen = postVen;
         this.direVen = direVen;
         this.idBusq = idBusq;
-        this.correoVen = correoVen;
+       
     }
 
     public Integer getDniVen() {
@@ -122,13 +118,7 @@ public class TablaVentas implements Serializable {
         this.idBusq = idBusq;
     }
 
-    public String getCorreoVen() {
-        return correoVen;
-    }
-
-    public void setCorreoVen(String correoVen) {
-        this.correoVen = correoVen;
-    }
+   
 
     @Override
     public int hashCode() {

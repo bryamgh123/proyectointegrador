@@ -331,10 +331,9 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                         obj.setColoBusq(txt_colo.getText());
                         obj.setCantBusq(txt_cant.getText());
                         obj.setPrecBusq(txt_prec.getText());
-                        
+                        aggmasca.create(obj);
                         
                         createmodelo();
-                         aggmasca.create(obj);
                         cargar_informacion();
                         Clear();
                     }

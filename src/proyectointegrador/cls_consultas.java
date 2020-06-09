@@ -34,6 +34,22 @@ public class cls_consultas {
         if (NomTabla.equals("Apellido")) {
             obj.CargarTabla(InstruccionSQL, Tabla);
         }
+        if (NomTabla.equals("DNI")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Pais")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Ciudad")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if(NomTabla.equals("Postal")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if(NomTabla.equals("Direccion")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        
         
         return Tabla;
     }

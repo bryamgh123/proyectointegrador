@@ -5,7 +5,8 @@
  */
 package proyectointegrador;
 
-
+import Entidades.TablaBusqVenta;
+import Entidades.TablaVentas;
 import QR.frm_qr;
 import java.io.ByteArrayOutputStream;
 import java.util.List;
@@ -21,25 +22,38 @@ import net.glxn.qrgen.QRCode;
  */
 public class frm_ventas extends javax.swing.JFrame {
 
-   
+    public static DefaultTableModel modelo;
+    Controladores.TablaVentasJpaController venta = new Controladores.TablaVentasJpaController();
+
     /**
      * Creates new form frm_prototipo
      */
     public frm_ventas() {
         initComponents();
-        
+        createmodelo();
+        cargar_informacion();
+        cls_conexion cnx = new cls_conexion();
+        //cnx.cargarCombo("Select concat_ws ('-', id_busq, mode_busq) AS Nombre from tabla_busq_venta", cbx_masca);
+
     }
+   /** public int CortarCodigo(String Cadena) {
+        String res = "";
+        for (int i = 0; i <= Cadena.length() - 1; i++) {
+            String a = Cadena.substring(i, i + 1);
+            if (a.equals("-")) {
+                break;
+            } else {
+                res = res + a;
+            }
+
+        }
+        return Integer.parseInt(res);
+    }*/
 
     frm_ventas(JFrame jFrame, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-   
 
-    
-
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +69,7 @@ public class frm_ventas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        vtn_buscarmascarilla = new javax.swing.JButton();
+        btn_buscarmascarilla = new javax.swing.JButton();
         txt_prec = new javax.swing.JTextField();
         txt_canti = new javax.swing.JTextField();
         txt_color = new javax.swing.JTextField();
@@ -73,28 +87,26 @@ public class frm_ventas extends javax.swing.JFrame {
         Guardar_agregar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txt_cod = new javax.swing.JTextField();
+        txt_codi = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txt_dir = new javax.swing.JTextField();
+        txt_dire = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txt_dni = new javax.swing.JTextField();
-        txt_ciu = new javax.swing.JTextField();
+        txt_ciud = new javax.swing.JTextField();
         txt_pais = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        txt_correo = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txt_num = new javax.swing.JTextField();
-        txt_fvn = new javax.swing.JTextField();
-        txt_cvv = new javax.swing.JTextField();
+        txt_num_tar = new javax.swing.JTextField();
+        txt_fech_tar = new javax.swing.JTextField();
+        txt_cvv_tar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        txt_busq_listcomra = new javax.swing.JTextField();
+        txt_busq = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbx_iten = new javax.swing.JComboBox<>();
         btt_buscar_lista_compra = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
@@ -112,10 +124,10 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jLabel7.setText("color :");
 
-        vtn_buscarmascarilla.setText("Buscar mascarilla");
-        vtn_buscarmascarilla.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscarmascarilla.setText("Buscar mascarilla");
+        btn_buscarmascarilla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vtn_buscarmascarillaActionPerformed(evt);
+                btn_buscarmascarillaActionPerformed(evt);
             }
         });
 
@@ -151,13 +163,13 @@ public class frm_ventas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel5))
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5))
-                        .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txt_cara, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
@@ -182,13 +194,13 @@ public class frm_ventas extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txt_prec, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                                     .addComponent(txt_id)))))
-                    .addComponent(vtn_buscarmascarilla, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btn_buscarmascarilla, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -213,12 +225,12 @@ public class frm_ventas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(vtn_buscarmascarilla)
-                .addGap(31, 31, 31))
+                .addGap(28, 28, 28)
+                .addComponent(btn_buscarmascarilla)
+                .addContainerGap())
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "M a s c a r i l l a", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -305,13 +317,11 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jLabel12.setText("Ciudad :");
 
-        txt_ciu.addActionListener(new java.awt.event.ActionListener() {
+        txt_ciud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ciuActionPerformed(evt);
+                txt_ciudActionPerformed(evt);
             }
         });
-
-        jLabel15.setText("Correo :");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -320,7 +330,6 @@ public class frm_ventas extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15)
                     .addComponent(jLabel6)
                     .addComponent(jLabel12)
                     .addComponent(jLabel10)
@@ -330,11 +339,10 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_pais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
-                    .addComponent(txt_ciu, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_dir, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_cod)
-                    .addComponent(txt_dni, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_correo))
+                    .addComponent(txt_ciud, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_dire, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_codi)
+                    .addComponent(txt_dni, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -351,31 +359,27 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txt_ciu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ciud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txt_cod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_codi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txt_dir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addContainerGap())
+                    .addComponent(txt_dire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Forma de pago", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        jLabel13.setText("Numero de targeta :");
+        jLabel13.setText("Numero de tarjeta :");
 
         jLabel14.setText("CVV :");
 
-        txt_fvn.addActionListener(new java.awt.event.ActionListener() {
+        txt_fech_tar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_fvnActionPerformed(evt);
+                txt_fech_tarActionPerformed(evt);
             }
         });
 
@@ -393,9 +397,9 @@ public class frm_ventas extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_fvn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_cvv, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_num, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_fech_tar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_cvv_tar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_num_tar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 126, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -404,29 +408,29 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(txt_num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_num_tar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_fvn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_fech_tar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txt_cvv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_cvv_tar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda en lista de compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
-        txt_busq_listcomra.addActionListener(new java.awt.event.ActionListener() {
+        txt_busq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_busq_listcomraActionPerformed(evt);
+                txt_busqActionPerformed(evt);
             }
         });
 
         jLabel17.setText("Buscar en mi  lista de compra");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Modelo", "Caracteristica" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion" }));
 
         btt_buscar_lista_compra.setText("Buscar en lista compra");
         btt_buscar_lista_compra.addActionListener(new java.awt.event.ActionListener() {
@@ -444,10 +448,10 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(178, 178, 178))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(txt_busq_listcomra, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addComponent(txt_busq, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btt_buscar_lista_compra)
                 .addGap(27, 27, 27))
@@ -455,12 +459,12 @@ public class frm_ventas extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addGap(26, 26, 26)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_busq_listcomra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btt_buscar_lista_compra)))
         );
 
@@ -487,20 +491,17 @@ public class frm_ventas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(7, 7, 7)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -515,105 +516,201 @@ public class frm_ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_cantiActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
-        // TODO add your handling code here:
+      
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btn_regresarActionPerformed
 
-    private void txt_ciuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ciuActionPerformed
+    private void txt_ciudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ciudActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ciuActionPerformed
+    }//GEN-LAST:event_txt_ciudActionPerformed
 
-    private void txt_fvnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fvnActionPerformed
+    private void txt_fech_tarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fech_tarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_fvnActionPerformed
+    }//GEN-LAST:event_txt_fech_tarActionPerformed
 
     private void btn_comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprarActionPerformed
 
-       //este llama a el frm_qr para jenerar el qr 
-        QR.frm_qr kardex = new QR.frm_qr(new javax.swing.JFrame(),true);
-         kardex.setVisible(true);
-         this.setVisible(false);
+        //este llama a el frm_qr para jenerar el qr 
+        QR.frm_qr kardex = new QR.frm_qr(new javax.swing.JFrame(), true);
+        kardex.setVisible(true);
+        this.setVisible(false);
 
-
-           
-
-      
-        
-// TODO add your handling code here:
     }//GEN-LAST:event_btn_comprarActionPerformed
     private static boolean ban = false;
 
     private void Guardar_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_agregarActionPerformed
         try {
             if (txt_dni.getText().length() > 0) {
-                if (txt_mode.getText().length() > 0) {
+                if (txt_pais.getText().length() > 0) {
+                    if (txt_ciud.getText().length() > 0) {
+                         if (txt_codi.getText().length() > 0) {
+                             if (txt_dire.getText().length() > 0) {
+                         
 
                     if (ban == false) {
+                        TablaVentas obj = new TablaVentas();
+                        
+                        obj.setDniVen(Integer.parseInt(txt_dni.getText()));
+                        obj.setPaisVen(txt_pais.getText());
+                        obj.setCiudVen(txt_ciud.getText());
+                        obj.setPostVen(txt_codi.getText());
+                        obj.setDireVen(txt_dire.getText());
+                        obj.setIdBusq(Integer.parseInt(txt_id.getText()));
+                       // obj.setIdBusq(CortarCodigo(cbx_masca.getSelectedItem().toString()));
+                        venta.create(obj);
+                        
+                        createmodelo();
+                        cargar_informacion();
+                        
 
                     }
                     if (ban == true) {
-
+                        TablaVentas obj = new TablaVentas();
+                        obj.setDniVen(Integer.parseInt(txt_dni.getText()));
+                        obj.setPaisVen(txt_pais.getText());
+                        obj.setCiudVen(txt_ciud.getText());
+                        obj.setPostVen(txt_codi.getText());
+                        obj.setDireVen(txt_dire.getText());
+                        obj.setIdBusq(Integer.parseInt(txt_id.getText()));
+                       // obj.setIdBusq(CortarCodigo(cbx_masca.getSelectedItem().toString()));
+                        venta.edit(obj);
+                        
+                        createmodelo();
+                        cargar_informacion();
+ 
                         ban = false;
+
+                      
                     }
+                    } else {
+                    JOptionPane.showMessageDialog(null, "Ingresela Direccion");
+                }
+                    } else {
+                    JOptionPane.showMessageDialog(null, "Ingresela Codigo Postal");
+                }
+                    } else {
+                    JOptionPane.showMessageDialog(null, "Ingresela Ciudad");
+                }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Ingresela nombre");
+                    JOptionPane.showMessageDialog(null, "Ingresela Pais");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Ingresela cedula");
+                JOptionPane.showMessageDialog(null, "Ingresela Dni");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_Guardar_agregarActionPerformed
 
-    private void txt_busq_listcomraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_busq_listcomraActionPerformed
+    private void txt_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_busqActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_busq_listcomraActionPerformed
+    }//GEN-LAST:event_txt_busqActionPerformed
 
     private void btt_buscar_lista_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_buscar_lista_compraActionPerformed
-          cls_consultas obj = new cls_consultas();
-       /** if (btt_opc.getSelectedItem().equals("Todos")) {
-            obj.Consulta("Tabla", tipo_clientes, "SELECT id_tip_cli as ID, des_tip_cli as Tipo_Cliente from tipo_cliente;");
+        cls_consultas obj = new cls_consultas();
+        if (cbx_iten.getSelectedItem().equals("Todos")) {
+            obj.Consulta("Tabla", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion from tabla_ventas ;");
         }
-        if (btt_opc.getSelectedItem().equals("ID")) {
-            obj.Consulta("ID", tipo_clientes, "SELECT id_tip_cli as ID, des_tip_cli as Tipo_Cliente from tipo_cliente Where id_tip_cli like '%" + txt_bus.getText() + "%'");
+        if (cbx_iten.getSelectedItem().equals("DNI")) {
+            obj.Consulta("DNI", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas Where dni_ven like '%" + txt_busq.getText() + "%'");
         }
-        if (btt_opc.getSelectedItem().equals("Descripcion")) {
-            obj.Consulta("Nombre", tipo_clientes, "SELECT id_tip_cli as ID, des_tip_cli as Tipo_Cliente from tipo_cliente Where des_tip_cli like '%" + txt_bus.getText() + "%'");
-        }*/
+        if (cbx_iten.getSelectedItem().equals("Pais")) {
+            obj.Consulta("Pais", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas  Where pais_ven like '%" + txt_busq.getText() + "%'");
+        }
+        if (cbx_iten.getSelectedItem().equals("Ciudad")) {
+            obj.Consulta("Ciudad", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas  Where ciud_ven like '%" + txt_busq.getText() + "%'");
+        }
+        if (cbx_iten.getSelectedItem().equals("Codigo postal")) {
+            obj.Consulta("Postal", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas  Where post_ven like '%" + txt_busq.getText() + "%'");
+        }
+        if(cbx_iten.getSelectedItem().equals("Direccion")){
+            obj.Consulta("Direccion",tabla_venta,"SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo psotal, dire_ven as Direccion  from tabla_ventas Where dire_ven like '%"+txt_busq+"%'");
+        }
+        
     }//GEN-LAST:event_btt_buscar_lista_compraActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-       try {
-            //if (tipo_clientes.getSelectedRow() >= 0) {
-
-              //  ctipocli.destroy(Integer.parseInt(tipo_clientes.getValueAt(tipo_clientes.getSelectedRow(), 0).toString()));
-              //  createmodelo();
-                //cargar_informacion();
-            //} else {
-                //JOptionPane.showMessageDialog(null, "Seleccione una fila");
-            //}
+try {
+            if (tabla_venta.getSelectedRow() >= 0) {
+                
+                venta.destroy(Integer.parseInt(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 0).toString()));
+                createmodelo();
+                cargar_informacion();
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila");
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
-
-}
+            
+        }
 
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
-    private void vtn_buscarmascarillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vtn_buscarmascarillaActionPerformed
-frm_md_buscarmascarilla kardex= new frm_md_buscarmascarilla(new javax.swing.JFrame(),true);
-      kardex.setVisible(true); 
-      txt_id.setText(String.valueOf(kardex.getId_busq()));
-      txt_mode.setText(kardex.getMode_busq());
-      txt_cara.setText(kardex.getCara_busq());
-txt_color.setText(kardex.getColo_busq());
-txt_canti.setText(kardex.getCant_busq());
-txt_prec.setText(kardex.getPrecio_busq());
-// TODO add your handling code here:
-    }//GEN-LAST:event_vtn_buscarmascarillaActionPerformed
+    private void btn_buscarmascarillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarmascarillaActionPerformed
+        frm_md_buscarmascarilla kardex = new frm_md_buscarmascarilla(new javax.swing.JFrame(), true);
+        kardex.setVisible(true);
+        txt_id.setText(String.valueOf(kardex.getId_busq()));
+        txt_mode.setText(kardex.getMode_busq());
+        txt_cara.setText(kardex.getCara_busq());
+        txt_color.setText(kardex.getColo_busq());
+        txt_canti.setText(kardex.getCant_busq());
+        txt_prec.setText(kardex.getPrecio_busq());
+        
 
+    }//GEN-LAST:event_btn_buscarmascarillaActionPerformed
 
+    private void createmodelo() {
+        try {
+            modelo = (new DefaultTableModel(null, new String[]{"DNI", "Pais", "Ciudad", "Codigo postal", "Direccion","ID"}) {
+                Class[] types = new Class[]{
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,};
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false};
+
+                @Override
+                public Class getColumnClass(int columnindex) {
+                    return types[columnindex];
+                }
+
+                @Override
+                public boolean isCellEditable(int rowindex, int colindex) {
+                    return canEdit[colindex];
+                }
+            });
+            tabla_venta.setModel(modelo);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.toString() + "error2");
+        }
+    }
+
+    private void cargar_informacion() {
+        try {
+            Object[] o = null;
+            List<TablaVentas> lista = venta.findTablaVentasEntities();
+            for (int i = 0; i < lista.size(); i++) {
+                modelo.addRow(o);
+                modelo.setValueAt(lista.get(i).getDniVen(), i, 0);
+                modelo.setValueAt(lista.get(i).getPaisVen(), i, 1);
+                modelo.setValueAt(lista.get(i).getCiudVen(), i, 2);
+                modelo.setValueAt(lista.get(i).getPostVen(), i, 3);
+                modelo.setValueAt(lista.get(i).getDireVen(), i, 4);
+                modelo.setValueAt(lista.get(i).getIdBusq(),i,5);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
 
     /**
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -651,18 +748,18 @@ txt_prec.setText(kardex.getPrecio_busq());
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Guardar_agregar;
+    private javax.swing.JButton btn_buscarmascarilla;
     private javax.swing.JButton btn_comprar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btt_buscar_lista_compra;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbx_iten;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -680,22 +777,20 @@ txt_prec.setText(kardex.getPrecio_busq());
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla_venta;
-    private javax.swing.JTextField txt_busq_listcomra;
+    private javax.swing.JTextField txt_busq;
     private javax.swing.JTextField txt_canti;
     private javax.swing.JTextField txt_cara;
-    private javax.swing.JTextField txt_ciu;
-    private javax.swing.JTextField txt_cod;
+    private javax.swing.JTextField txt_ciud;
+    private javax.swing.JTextField txt_codi;
     private javax.swing.JTextField txt_color;
-    private javax.swing.JTextField txt_correo;
-    private javax.swing.JTextField txt_cvv;
-    private javax.swing.JTextField txt_dir;
+    private javax.swing.JTextField txt_cvv_tar;
+    private javax.swing.JTextField txt_dire;
     private javax.swing.JTextField txt_dni;
-    private javax.swing.JTextField txt_fvn;
+    private javax.swing.JTextField txt_fech_tar;
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_mode;
-    private javax.swing.JTextField txt_num;
+    private javax.swing.JTextField txt_num_tar;
     private javax.swing.JTextField txt_pais;
     private javax.swing.JTextField txt_prec;
-    private javax.swing.JButton vtn_buscarmascarilla;
     // End of variables declaration//GEN-END:variables
 }
