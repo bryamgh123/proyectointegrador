@@ -23,7 +23,7 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/globalizaciongrande.png")).getImage());
     }
-
+// hola
     cls_metodos metodos = new cls_metodos();
 
     /**
