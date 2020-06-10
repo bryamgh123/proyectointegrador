@@ -30,7 +30,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TablaVentas.findByPostVen", query = "SELECT t FROM TablaVentas t WHERE t.postVen = :postVen"),
     @NamedQuery(name = "TablaVentas.findByDireVen", query = "SELECT t FROM TablaVentas t WHERE t.direVen = :direVen"),
     @NamedQuery(name = "TablaVentas.findByIdBusq", query = "SELECT t FROM TablaVentas t WHERE t.idBusq = :idBusq"),
-    @NamedQuery(name = "TablaVentas.findByCorreoVen", query = "SELECT t FROM TablaVentas t WHERE t.correoVen = :correoVen")})
+    @NamedQuery(name = "TablaVentas.findByNumTar", query = "SELECT t FROM TablaVentas t WHERE t.numTar = :numTar"),
+    @NamedQuery(name = "TablaVentas.findByFechTar", query = "SELECT t FROM TablaVentas t WHERE t.fechTar = :fechTar"),
+    @NamedQuery(name = "TablaVentas.findByCodiTar", query = "SELECT t FROM TablaVentas t WHERE t.codiTar = :codiTar")})
 public class TablaVentas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,8 +56,14 @@ public class TablaVentas implements Serializable {
     @Column(name = "id_busq")
     private int idBusq;
     @Basic(optional = false)
-    @Column(name = "correo_ven")
-    private String correoVen;
+    @Column(name = "num_tar")
+    private int numTar;
+    @Basic(optional = false)
+    @Column(name = "fech_tar")
+    private int fechTar;
+    @Basic(optional = false)
+    @Column(name = "codi_tar")
+    private int codiTar;
 
     public TablaVentas() {
     }
@@ -64,14 +72,16 @@ public class TablaVentas implements Serializable {
         this.dniVen = dniVen;
     }
 
-    public TablaVentas(Integer dniVen, String paisVen, String ciudVen, String postVen, String direVen, int idBusq, String correoVen) {
+    public TablaVentas(Integer dniVen, String paisVen, String ciudVen, String postVen, String direVen, int idBusq, int numTar, int fechTar, int codiTar) {
         this.dniVen = dniVen;
         this.paisVen = paisVen;
         this.ciudVen = ciudVen;
         this.postVen = postVen;
         this.direVen = direVen;
         this.idBusq = idBusq;
-        this.correoVen = correoVen;
+        this.numTar = numTar;
+        this.fechTar = fechTar;
+        this.codiTar = codiTar;
     }
 
     public Integer getDniVen() {
@@ -122,12 +132,28 @@ public class TablaVentas implements Serializable {
         this.idBusq = idBusq;
     }
 
-    public String getCorreoVen() {
-        return correoVen;
+    public int getNumTar() {
+        return numTar;
     }
 
-    public void setCorreoVen(String correoVen) {
-        this.correoVen = correoVen;
+    public void setNumTar(int numTar) {
+        this.numTar = numTar;
+    }
+
+    public int getFechTar() {
+        return fechTar;
+    }
+
+    public void setFechTar(int fechTar) {
+        this.fechTar = fechTar;
+    }
+
+    public int getCodiTar() {
+        return codiTar;
+    }
+
+    public void setCodiTar(int codiTar) {
+        this.codiTar = codiTar;
     }
 
     @Override
@@ -152,7 +178,7 @@ public class TablaVentas implements Serializable {
 
     @Override
     public String toString() {
-        return "proyectointegrador.TablaVentas[ dniVen=" + dniVen + " ]";
+        return "Entidades.TablaVentas[ dniVen=" + dniVen + " ]";
     }
     
 }

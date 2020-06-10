@@ -16,30 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `qrmascarilla`
---
-
-DROP TABLE IF EXISTS `qrmascarilla`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qrmascarilla` (
-  `correo_ven` int(11) NOT NULL,
-  `mode_busq` varchar(100) NOT NULL,
-  `cara_busq` varchar(100) NOT NULL,
-  PRIMARY KEY (`correo_ven`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `qrmascarilla`
---
-
-LOCK TABLES `qrmascarilla` WRITE;
-/*!40000 ALTER TABLE `qrmascarilla` DISABLE KEYS */;
-/*!40000 ALTER TABLE `qrmascarilla` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tabla_busq_venta`
 --
 
@@ -63,7 +39,7 @@ CREATE TABLE `tabla_busq_venta` (
 
 LOCK TABLES `tabla_busq_venta` WRITE;
 /*!40000 ALTER TABLE `tabla_busq_venta` DISABLE KEYS */;
-INSERT INTO `tabla_busq_venta` VALUES (1,'modelo','caracteristicaas','color','cantidad','precio');
+INSERT INTO `tabla_busq_venta` VALUES (1,'z-2000','suit-x-case9.20','azul','adulto','150$'),(2,'y-500','sjs-aea-2.0','yellow','mediun','500$'),(4,'x-300','model-90x-86-c','rojo','infantil','70$');
 /*!40000 ALTER TABLE `tabla_busq_venta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +57,9 @@ CREATE TABLE `tabla_ventas` (
   `post_ven` varchar(45) NOT NULL,
   `dire_ven` varchar(45) NOT NULL,
   `id_busq` int(11) NOT NULL,
-  `correo_ven` varchar(45) NOT NULL,
+  `num_tar` int(11) NOT NULL,
+  `fech_tar` int(11) NOT NULL,
+  `codi_tar` int(11) NOT NULL,
   PRIMARY KEY (`dni_ven`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -92,6 +70,7 @@ CREATE TABLE `tabla_ventas` (
 
 LOCK TABLES `tabla_ventas` WRITE;
 /*!40000 ALTER TABLE `tabla_ventas` DISABLE KEYS */;
+INSERT INTO `tabla_ventas` VALUES (1,'colombia','cuenca','2','sur',2,2,2,2),(2,'argentina','bueno aires','32','este',2,4,2,2),(39,'ecuador','machala','1','norte',2,1,2,2);
 /*!40000 ALTER TABLE `tabla_ventas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +87,6 @@ CREATE TABLE `usuarios` (
   `correo` varchar(45) NOT NULL,
   `contraseña` varchar(45) NOT NULL,
   `dni_ven` int(11) DEFAULT NULL,
-  `qr_id_mascarilla` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`nombre`),
   UNIQUE KEY `correo_UNIQUE` (`correo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -120,7 +98,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('a','a','a','a',NULL,NULL),('clinjer','flores','@hotmail.com','123',NULL,NULL),('jose','roman','hotmail.com','123',NULL,NULL),('pepe','valdiviezo','yopmail.com','123',NULL,NULL),('usuario','usuario','correo','123',NULL,NULL);
+INSERT INTO `usuarios` VALUES ('bryan','gordillo','gmail.com','123',NULL),('clinjer','flores','yopmail.com','123',NULL),('huevo izquierdo','huevo derecho','@elhuevo.com','123',NULL),('jose','roman','hotmail.com','123',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -133,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-04 15:59:14
+-- Dump completed on 2020-06-09 19:19:04

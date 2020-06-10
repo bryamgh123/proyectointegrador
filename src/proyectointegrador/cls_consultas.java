@@ -25,6 +25,34 @@ public class cls_consultas {
         if (NomTabla.equals("Modelos")) {
             obj.CargarTabla(InstruccionSQL, Tabla);
         }
+        if (NomTabla.equals("Nombre")) {
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Correo")) {
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Apellido")) {
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("DNI")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Pais")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if (NomTabla.equals("Ciudad")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if(NomTabla.equals("Postal")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if(NomTabla.equals("Direccion")){
+            obj.CargarTabla(InstruccionSQL, Tabla);
+        }
+        if(NomTabla.equals("Numero_de_tarjeta")){
+            obj.CargarTabla(InstruccionSQL,Tabla);
+        }
+        
         
         return Tabla;
     }

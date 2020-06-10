@@ -74,6 +74,7 @@ public class frm_qr extends javax.swing.JDialog {
         lblcodigoQR = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txt_correo = new javax.swing.JTextField();
+        generar = new javax.swing.JButton();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -110,10 +111,17 @@ public class frm_qr extends javax.swing.JDialog {
 
         jLabel1.setText("Este es el codigo QR de tu mascarilla:");
 
-        txt_correo.setText("hola pa como esta todo bn");
+        txt_correo.setText("que chucha me estas apuntando con la camara sapo mama verga");
         txt_correo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_correoActionPerformed(evt);
+            }
+        });
+
+        generar.setText("generar");
+        generar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generarActionPerformed(evt);
             }
         });
 
@@ -124,7 +132,9 @@ public class frm_qr extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(250, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(generar)
+                        .addGap(18, 18, 18)
                         .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cancelButton))
@@ -135,8 +145,8 @@ public class frm_qr extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 54, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -154,7 +164,8 @@ public class frm_qr extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
-                    .addComponent(okButton))
+                    .addComponent(okButton)
+                    .addComponent(generar))
                 .addContainerGap())
         );
 
@@ -181,8 +192,6 @@ public  void GenerarCodigoQR()
         
 }
 
-    
-
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
        proyectointegrador.frm_estructura ventana = new proyectointegrador.frm_estructura();
             ventana.setVisible(true);
@@ -191,11 +200,6 @@ public  void GenerarCodigoQR()
         doClose(RET_OK);
     }//GEN-LAST:event_okButtonActionPerformed
 
-    
-    
-    
-    
-    
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         doClose(RET_CANCEL);
     }//GEN-LAST:event_cancelButtonActionPerformed
@@ -210,6 +214,25 @@ public  void GenerarCodigoQR()
     private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_correoActionPerformed
+
+    private void generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarActionPerformed
+
+
+  proyectointegrador.frm_ventas kardex = new proyectointegrador.frm_ventas();
+        
+        kardex.setVisible(true);
+        
+        //txt_correo.setText(String.valueOf(kardex.()));
+        
+        
+        
+
+
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generarActionPerformed
     
     private void doClose(int retStatus) {
         returnStatus = retStatus;
@@ -264,6 +287,7 @@ public  void GenerarCodigoQR()
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
+    private javax.swing.JButton generar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblcodigoQR;

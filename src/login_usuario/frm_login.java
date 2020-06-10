@@ -222,9 +222,7 @@ public class frm_login extends javax.swing.JFrame {
         } else {
 
             JOptionPane.showMessageDialog(this, "Usuario no registrado, Cree un usuario nuevo", "Usuario no encontrado", JOptionPane.ERROR_MESSAGE);
-            frm_nuevo_usuario ventana = new frm_nuevo_usuario();
-            ventana.setVisible(true);
-            this.setVisible(false);
+            
         }
 
     }//GEN-LAST:event_btt_entrarActionPerformed

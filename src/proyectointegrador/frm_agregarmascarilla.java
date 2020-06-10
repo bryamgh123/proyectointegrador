@@ -24,6 +24,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
      */
     public frm_agregarmascarilla() {
         initComponents();
+        setLocationRelativeTo(null);
         createmodelo();
         cargar_informacion();
     }
@@ -41,7 +42,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         txt_busq = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        cbx_item = new javax.swing.JComboBox();
+        cbx_iten = new javax.swing.JComboBox();
         btn_busq = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         txt_cara = new javax.swing.JTextField();
@@ -77,6 +78,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda mascarilla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         txt_busq.addActionListener(new java.awt.event.ActionListener() {
@@ -87,8 +89,9 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
 
         jLabel1.setText("Tipo :");
 
-        cbx_item.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Modelo", "Caracteristica" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "ID", "Modelos" }));
 
+        btn_busq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btn_busq.setText("Buscar");
         btn_busq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,33 +103,36 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_busq, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(17, 17, 17)
                     .addComponent(jLabel1)
                     .addGap(18, 18, 18)
-                    .addComponent(cbx_item, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(btn_busq)
-                    .addGap(17, 17, 17)))
+                    .addGap(142, 142, 142)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 57, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(btn_busq)
+                .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(19, 19, 19)
+                    .addGap(30, 30, 30)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(cbx_item, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_busq))
+                        .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Caracteristicas de Mascarilla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         jLabel3.setText("Modelo :");
@@ -200,6 +206,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -215,6 +222,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla);
 
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/espalda.png"))); // NOI18N
         btn_regresar.setText("Regresar");
         btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +230,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             }
         });
 
+        btn_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ensayo.png"))); // NOI18N
         btn_editar.setText("Editar");
         btn_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +238,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             }
         });
 
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,6 +246,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             }
         });
 
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar.png"))); // NOI18N
         btn_guardar.setText("Guardar");
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +261,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_regresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -295,8 +306,8 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -331,10 +342,9 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                         obj.setColoBusq(txt_colo.getText());
                         obj.setCantBusq(txt_cant.getText());
                         obj.setPrecBusq(txt_prec.getText());
-                        
+                        aggmasca.create(obj);
                         
                         createmodelo();
-                         aggmasca.create(obj);
                         cargar_informacion();
                         Clear();
                     }
@@ -405,7 +415,16 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busqActionPerformed
-      
+cls_consultas obj = new cls_consultas(); 
+        if (cbx_iten.getSelectedItem().equals("Todos")) {
+            obj.Consulta("Tabla", tabla, "SELECT id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio  from tabla_busq_venta;");
+        }
+        if (cbx_iten.getSelectedItem().equals("ID")) {
+            obj.Consulta("ID", tabla, "SELECT  id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio from tabla_busq_venta Where id_busq like '%" + txt_busq.getText() + "%'");
+        }
+        if (cbx_iten.getSelectedItem().equals("Modelos")) {
+            obj.Consulta("Modelos", tabla, "SELECT  id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio from tabla_busq_venta Where mode_busq like '%" + txt_busq.getText() + "%'");
+        }      
         
         
     }//GEN-LAST:event_btn_busqActionPerformed
@@ -503,7 +522,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_regresar;
-    private javax.swing.JComboBox cbx_item;
+    private javax.swing.JComboBox cbx_iten;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

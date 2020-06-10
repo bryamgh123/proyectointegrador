@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Usuarios.findByCorreo", query = "SELECT u FROM Usuarios u WHERE u.correo = :correo"),
     @NamedQuery(name = "Usuarios.findByContrase\u00f1a", query = "SELECT u FROM Usuarios u WHERE u.contrase\u00f1a = :contrase\u00f1a"),
     @NamedQuery(name = "Usuarios.findByDniVen", query = "SELECT u FROM Usuarios u WHERE u.dniVen = :dniVen"),
-    @NamedQuery(name = "Usuarios.findByQrIdMascarilla", query = "SELECT u FROM Usuarios u WHERE u.qrIdMascarilla = :qrIdMascarilla")})
+    })
 public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,8 +48,7 @@ public class Usuarios implements Serializable {
     private String contraseña;
     @Column(name = "dni_ven")
     private Integer dniVen;
-    @Column(name = "qr_id_mascarilla")
-    private String qrIdMascarilla;
+    
 
     public Usuarios() {
     }
@@ -105,13 +104,9 @@ public class Usuarios implements Serializable {
         this.dniVen = dniVen;
     }
 
-    public String getQrIdMascarilla() {
-        return qrIdMascarilla;
-    }
+    
 
-    public void setQrIdMascarilla(String qrIdMascarilla) {
-        this.qrIdMascarilla = qrIdMascarilla;
-    }
+   
 
     @Override
     public int hashCode() {
