@@ -30,26 +30,22 @@ public class frm_ventas extends javax.swing.JFrame {
      */
     public frm_ventas() {
         initComponents();
+        setLocationRelativeTo(null);
         createmodelo();
         cargar_informacion();
         cls_conexion cnx = new cls_conexion();
         //cnx.cargarCombo("Select concat_ws ('-', id_busq, mode_busq) AS Nombre from tabla_busq_venta", cbx_masca);
 
     }
-   /** public int CortarCodigo(String Cadena) {
-        String res = "";
-        for (int i = 0; i <= Cadena.length() - 1; i++) {
-            String a = Cadena.substring(i, i + 1);
-            if (a.equals("-")) {
-                break;
-            } else {
-                res = res + a;
-            }
 
-        }
-        return Integer.parseInt(res);
-    }*/
-
+    /**
+     * public int CortarCodigo(String Cadena) { String res = ""; for (int i = 0;
+     * i <= Cadena.length() - 1; i++) { String a = Cadena.substring(i, i + 1);
+     * if (a.equals("-")) { break; } else { res = res + a; }
+     *
+     * }
+     * return Integer.parseInt(res); }
+     */
     frm_ventas(JFrame jFrame, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -85,6 +81,7 @@ public class frm_ventas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_venta = new javax.swing.JTable();
         Guardar_agregar = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txt_codi = new javax.swing.JTextField();
@@ -113,6 +110,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de la compra\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -124,6 +122,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jLabel7.setText("color :");
 
+        btn_buscarmascarilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tapaboca.png"))); // NOI18N
         btn_buscarmascarilla.setText("Buscar mascarilla");
         btn_buscarmascarilla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +199,7 @@ public class frm_ventas extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -230,8 +229,10 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,6 +240,7 @@ public class frm_ventas extends javax.swing.JFrame {
             }
         });
 
+        btn_comprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/comprar.png"))); // NOI18N
         btn_comprar.setText("Comprar");
         btn_comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +248,7 @@ public class frm_ventas extends javax.swing.JFrame {
             }
         });
 
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/espalda.png"))); // NOI18N
         btn_regresar.setText("regresar");
         btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,10 +269,19 @@ public class frm_ventas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla_venta);
 
+        Guardar_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/al-por-menor.png"))); // NOI18N
         Guardar_agregar.setText("Agregar");
         Guardar_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Guardar_agregarActionPerformed(evt);
+            }
+        });
+
+        btn_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/prueba.png"))); // NOI18N
+        btn_editar.setText("Editar");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
             }
         });
 
@@ -282,29 +294,33 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn_regresar)
+                        .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Guardar_agregar)
+                        .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_comprar)
+                        .addComponent(Guardar_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btn_comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_eliminar)
-                        .addContainerGap())))
+                        .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_editar)
+                    .addComponent(Guardar_agregar)
                     .addComponent(btn_comprar)
                     .addComponent(btn_eliminar)
-                    .addComponent(btn_regresar)
-                    .addComponent(Guardar_agregar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         jLabel6.setText("Codigo postal :");
@@ -338,7 +354,7 @@ public class frm_ventas extends javax.swing.JFrame {
                         .addComponent(jLabel9)))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_pais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                    .addComponent(txt_pais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
                     .addComponent(txt_ciud, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txt_dire, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txt_codi)
@@ -371,6 +387,7 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Forma de pago", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         jLabel13.setText("Numero de tarjeta :");
@@ -400,7 +417,7 @@ public class frm_ventas extends javax.swing.JFrame {
                     .addComponent(txt_fech_tar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_cvv_tar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_num_tar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 126, Short.MAX_VALUE))
+                .addGap(0, 155, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,6 +437,7 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda en lista de compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         txt_busq.addActionListener(new java.awt.event.ActionListener() {
@@ -430,8 +448,9 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jLabel17.setText("Buscar en mi  lista de compra");
 
-        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
 
+        btt_buscar_lista_compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
         btt_buscar_lista_compra.setText("Buscar en lista compra");
         btt_buscar_lista_compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -448,24 +467,24 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(178, 178, 178))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(26, 26, 26)
                 .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(txt_busq, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
+                .addComponent(txt_busq)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btt_buscar_lista_compra)
                 .addGap(27, 27, 27))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel17)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btt_buscar_lista_compra)
                     .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btt_buscar_lista_compra)))
+                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -481,17 +500,15 @@ public class frm_ventas extends javax.swing.JFrame {
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4))
-                            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -500,8 +517,7 @@ public class frm_ventas extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -516,12 +532,8 @@ public class frm_ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_cantiActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
-      
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_btn_regresarActionPerformed
 
     private void txt_ciudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ciudActionPerformed
@@ -540,66 +552,88 @@ public class frm_ventas extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_btn_comprarActionPerformed
+    public void Clear(){
+        txt_dni.setText("");
+        txt_pais.setText("");
+        txt_ciud.setText("");
+        txt_codi.setText("");
+        txt_dire.setText(""); 
+        
+    }
     private static boolean ban = false;
-
     private void Guardar_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_agregarActionPerformed
         try {
             if (txt_dni.getText().length() > 0) {
                 if (txt_pais.getText().length() > 0) {
                     if (txt_ciud.getText().length() > 0) {
-                         if (txt_codi.getText().length() > 0) {
-                             if (txt_dire.getText().length() > 0) {
-                         
+                        if (txt_codi.getText().length() > 0) {
+                            if (txt_dire.getText().length() > 0) {
+                                if (txt_num_tar.getText().length() > 0) {
+                                    if (txt_fech_tar.getText().length() > 0) {
+                                        if (txt_cvv_tar.getText().length() > 0) {
 
-                    if (ban == false) {
-                        TablaVentas obj = new TablaVentas();
-                        
-                        obj.setDniVen(Integer.parseInt(txt_dni.getText()));
-                        obj.setPaisVen(txt_pais.getText());
-                        obj.setCiudVen(txt_ciud.getText());
-                        obj.setPostVen(txt_codi.getText());
-                        obj.setDireVen(txt_dire.getText());
-                        obj.setIdBusq(Integer.parseInt(txt_id.getText()));
-                       // obj.setIdBusq(CortarCodigo(cbx_masca.getSelectedItem().toString()));
-                        venta.create(obj);
-                        
-                        createmodelo();
-                        cargar_informacion();
-                        
+                                            if (ban == false) {
+                                                TablaVentas obj = new TablaVentas();
 
+                                                obj.setDniVen(Integer.parseInt(txt_dni.getText()));
+                                                obj.setPaisVen(txt_pais.getText());
+                                                obj.setCiudVen(txt_ciud.getText());
+                                                obj.setPostVen(txt_codi.getText());
+                                                obj.setDireVen(txt_dire.getText());
+                                                obj.setNumTar(Integer.parseInt(txt_num_tar.getText()));
+                                                obj.setFechTar(Integer.parseInt(txt_fech_tar.getText()));
+                                                obj.setCodiTar(Integer.parseInt(txt_cvv_tar.getText()));
+                                                obj.setIdBusq(Integer.parseInt(txt_id.getText()));
+                                                venta.create(obj);
+
+                                                createmodelo();
+                                                cargar_informacion();
+                                                Clear();
+
+                                            }
+                                            if (ban == true) {
+                                                TablaVentas obj = new TablaVentas();
+                                                obj.setDniVen(Integer.parseInt(txt_dni.getText()));
+                                                obj.setPaisVen(txt_pais.getText());
+                                                obj.setCiudVen(txt_ciud.getText());
+                                                obj.setPostVen(txt_codi.getText());
+                                                obj.setDireVen(txt_dire.getText());
+                                                obj.setNumTar(Integer.parseInt(txt_num_tar.getText()));
+                                                obj.setFechTar(Integer.parseInt(txt_fech_tar.getText()));
+                                                obj.setCodiTar(Integer.parseInt(txt_cvv_tar.getText()));
+                                                obj.setIdBusq(Integer.parseInt(txt_id.getText()));
+                                                venta.edit(obj);
+
+                                                createmodelo();
+                                                cargar_informacion();
+                                                Clear();
+
+                                                ban = false;
+
+                                            }
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Ingrese codigo trasero de la tarjeta");
+                                        }
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "Ingrese Fecha de autenticacion de tarjeta");
+                                    }
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Ingrese Numero de tarjeta");
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Ingrese la Direccion");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Ingrese el Codigo Postal");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ingrese la Ciudad");
                     }
-                    if (ban == true) {
-                        TablaVentas obj = new TablaVentas();
-                        obj.setDniVen(Integer.parseInt(txt_dni.getText()));
-                        obj.setPaisVen(txt_pais.getText());
-                        obj.setCiudVen(txt_ciud.getText());
-                        obj.setPostVen(txt_codi.getText());
-                        obj.setDireVen(txt_dire.getText());
-                        obj.setIdBusq(Integer.parseInt(txt_id.getText()));
-                       // obj.setIdBusq(CortarCodigo(cbx_masca.getSelectedItem().toString()));
-                        venta.edit(obj);
-                        
-                        createmodelo();
-                        cargar_informacion();
- 
-                        ban = false;
-
-                      
-                    }
-                    } else {
-                    JOptionPane.showMessageDialog(null, "Ingresela Direccion");
-                }
-                    } else {
-                    JOptionPane.showMessageDialog(null, "Ingresela Codigo Postal");
-                }
-                    } else {
-                    JOptionPane.showMessageDialog(null, "Ingresela Ciudad");
-                }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Ingresela Pais");
+                    JOptionPane.showMessageDialog(null, "Ingrese el Pais");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Ingresela Dni");
+                JOptionPane.showMessageDialog(null, "Ingresela el Dni");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -611,32 +645,39 @@ public class frm_ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_busqActionPerformed
 
     private void btt_buscar_lista_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_buscar_lista_compraActionPerformed
+        try{
         cls_consultas obj = new cls_consultas();
         if (cbx_iten.getSelectedItem().equals("Todos")) {
-            obj.Consulta("Tabla", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion from tabla_ventas ;");
+            obj.Consulta("Tabla", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas ;");
         }
         if (cbx_iten.getSelectedItem().equals("DNI")) {
-            obj.Consulta("DNI", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas Where dni_ven like '%" + txt_busq.getText() + "%'");
+            obj.Consulta("DNI", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where dni_ven like '%" + txt_busq.getText() + "%'");
         }
         if (cbx_iten.getSelectedItem().equals("Pais")) {
-            obj.Consulta("Pais", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas  Where pais_ven like '%" + txt_busq.getText() + "%'");
+            obj.Consulta("Pais", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where pais_ven like '%" + txt_busq.getText() + "%'");
         }
         if (cbx_iten.getSelectedItem().equals("Ciudad")) {
-            obj.Consulta("Ciudad", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas  Where ciud_ven like '%" + txt_busq.getText() + "%'");
+            obj.Consulta("Ciudad", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where ciud_ven like '%" + txt_busq.getText() + "%'");
         }
         if (cbx_iten.getSelectedItem().equals("Codigo postal")) {
-            obj.Consulta("Postal", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo postal, dire_ven as Direccion   from tabla_ventas  Where post_ven like '%" + txt_busq.getText() + "%'");
+            obj.Consulta("Postal", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where post_ven like '%" + txt_busq.getText() + "%'");
         }
-        if(cbx_iten.getSelectedItem().equals("Direccion")){
-            obj.Consulta("Direccion",tabla_venta,"SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo psotal, dire_ven as Direccion  from tabla_ventas Where dire_ven like '%"+txt_busq+"%'");
+        if (cbx_iten.getSelectedItem().equals("Direccion")) {
+            obj.Consulta("Direccion", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_psotal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where dire_ven like '%" + txt_busq.getText() + "%'");
         }
-        
+        if (cbx_iten.getSelectedItem().equals("Tarjeta credito")) {
+            obj.Consulta("Numero_de_tarjeta", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_psotal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where num_tar like '%" + txt_busq.getText()+ "%'");
+        }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
     }//GEN-LAST:event_btt_buscar_lista_compraActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-try {
+        try {
             if (tabla_venta.getSelectedRow() >= 0) {
-                
+
                 venta.destroy(Integer.parseInt(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 0).toString()));
                 createmodelo();
                 cargar_informacion();
@@ -645,7 +686,7 @@ try {
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
-            
+
         }
 
     }//GEN-LAST:event_btn_eliminarActionPerformed
@@ -659,21 +700,51 @@ try {
         txt_color.setText(kardex.getColo_busq());
         txt_canti.setText(kardex.getCant_busq());
         txt_prec.setText(kardex.getPrecio_busq());
-        
+
 
     }//GEN-LAST:event_btn_buscarmascarillaActionPerformed
 
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+      try {
+
+            if (tabla_venta.getSelectedRow() >= 0) {
+                txt_dni.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 0).toString());
+                txt_pais.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 1).toString());
+                txt_ciud.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 2).toString());
+                txt_codi.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 3).toString());
+                txt_dire.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 4).toString());
+                txt_num_tar.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 5).toString());
+                txt_cvv_tar.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 6).toString());
+                txt_fech_tar.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 7).toString());
+                txt_id.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 8).toString());
+                txt_mode.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 9).toString());
+                //txt_cara.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 10).toString());
+                //txt_color.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 11).toString());
+                //txt_canti.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 12).toString());
+                //txt_prec.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 13).toString());
+ ban = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila para editar su tarjeta de creedito");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_btn_editarActionPerformed
+
     private void createmodelo() {
         try {
-            modelo = (new DefaultTableModel(null, new String[]{"DNI", "Pais", "Ciudad", "Codigo postal", "Direccion","ID"}) {
+            modelo = (new DefaultTableModel(null, new String[]{"DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Numero tarjeta", "Fecha valida", "CVV", "ID"}) {
                 Class[] types = new Class[]{
                     java.lang.String.class,
                     java.lang.String.class,
                     java.lang.String.class,
                     java.lang.String.class,
                     java.lang.String.class,
-                    java.lang.String.class,};
-                boolean[] canEdit = new boolean[]{false, false, false, false, false, false};
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class};
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false, false, false, false};
 
                 @Override
                 public Class getColumnClass(int columnindex) {
@@ -702,7 +773,10 @@ try {
                 modelo.setValueAt(lista.get(i).getCiudVen(), i, 2);
                 modelo.setValueAt(lista.get(i).getPostVen(), i, 3);
                 modelo.setValueAt(lista.get(i).getDireVen(), i, 4);
-                modelo.setValueAt(lista.get(i).getIdBusq(),i,5);
+                modelo.setValueAt(lista.get(i).getNumTar(), i, 5);
+                modelo.setValueAt(lista.get(i).getFechTar(), i, 6);
+                modelo.setValueAt(lista.get(i).getCodiTar(), i, 7);
+                modelo.setValueAt(lista.get(i).getIdBusq(), i, 8);
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -710,7 +784,7 @@ try {
     }
 
     /**
-     * 
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -750,6 +824,7 @@ try {
     private javax.swing.JButton Guardar_agregar;
     private javax.swing.JButton btn_buscarmascarilla;
     private javax.swing.JButton btn_comprar;
+    private javax.swing.JButton btn_editar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btt_buscar_lista_compra;

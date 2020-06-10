@@ -49,6 +49,9 @@ public class cls_consultas {
         if(NomTabla.equals("Direccion")){
             obj.CargarTabla(InstruccionSQL, Tabla);
         }
+        if(NomTabla.equals("Numero_de_tarjeta")){
+            obj.CargarTabla(InstruccionSQL,Tabla);
+        }
         
         
         return Tabla;

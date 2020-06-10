@@ -42,6 +42,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     public frm_md_buscarmascarilla(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
 
         // Close the dialog when Esc is pressed
         String cancelName = "cancel";
@@ -144,6 +145,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
             }
         });
 
+        okButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir(1).png"))); // NOI18N
         okButton.setText("OK");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +153,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
             }
         });
 
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar.png"))); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +161,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busquedas de modelos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "ID", "Modelos" }));
@@ -170,6 +174,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
             }
         });
 
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +209,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de mascarillas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
