@@ -55,7 +55,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
         });
         
        Entidades.TablaBusqVenta obj= new Entidades.TablaBusqVenta();
-       obj.CargarDatos(tabla);
+       //obj.CargarDatos(tabla);
        
     }
 
