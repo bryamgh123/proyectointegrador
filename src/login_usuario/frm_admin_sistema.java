@@ -5,6 +5,13 @@
  */
 package login_usuario;
 
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import proyectointegrador.Proyectointegrador;
+
 /**
  *
  * @author ACER
@@ -17,6 +24,13 @@ public class frm_admin_sistema extends javax.swing.JFrame {
     public frm_admin_sistema() {
         initComponents();
         setLocationRelativeTo(null);
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/login.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**

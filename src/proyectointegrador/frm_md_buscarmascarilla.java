@@ -7,11 +7,15 @@ package proyectointegrador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 /**
@@ -29,13 +33,13 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
      */
     public static final int RET_OK = 1;
 
-     private int id_busq;
+    private int id_busq;
     private String mode_busq;
     private String cara_busq;
     private String colo_busq;
     private String cant_busq;
     private String precio_busq;
-    
+
     /**
      * Creates new form frm_md_buscarmascarilla
      */
@@ -54,10 +58,16 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                 doClose(RET_CANCEL);
             }
         });
-        
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
 
-       Entidades.TablaBusqVenta obj= new Entidades.TablaBusqVenta();
-       //obj.CargarDatos(tabla);
+        Entidades.TablaBusqVenta obj = new Entidades.TablaBusqVenta();
+        //obj.CargarDatos(tabla);
 
     }
 
@@ -115,8 +125,6 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     public void setPrecio_busq(String precio_busq) {
         this.precio_busq = precio_busq;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,6 +170,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busquedas de modelos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        jPanel1.setOpaque(false);
 
         cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "ID", "Modelos" }));
 
@@ -210,6 +219,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de mascarillas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        jPanel2.setOpaque(false);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -280,20 +290,20 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-         if (tabla.getSelectedRow() >= 0) {
-                setId_busq(Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString()));
-                setMode_busq(tabla.getValueAt(tabla.getSelectedRow(), 1).toString());
-                setCara_busq(tabla.getValueAt(tabla.getSelectedRow(), 2).toString());
-                setColo_busq(tabla.getValueAt(tabla.getSelectedRow(), 3).toString());
-                setCant_busq(tabla.getValueAt(tabla.getSelectedRow(), 4).toString());
-                setPrecio_busq(tabla.getValueAt(tabla.getSelectedRow(), 5).toString());
-                
-                 doClose(RET_OK);
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Seleccione una fila");
-            }
-        
+        if (tabla.getSelectedRow() >= 0) {
+            setId_busq(Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString()));
+            setMode_busq(tabla.getValueAt(tabla.getSelectedRow(), 1).toString());
+            setCara_busq(tabla.getValueAt(tabla.getSelectedRow(), 2).toString());
+            setColo_busq(tabla.getValueAt(tabla.getSelectedRow(), 3).toString());
+            setCant_busq(tabla.getValueAt(tabla.getSelectedRow(), 4).toString());
+            setPrecio_busq(tabla.getValueAt(tabla.getSelectedRow(), 5).toString());
+
+            doClose(RET_OK);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila");
+        }
+
         doClose(RET_OK);
     }//GEN-LAST:event_okButtonActionPerformed
 
@@ -313,7 +323,7 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_busqActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-       cls_consultas obj = new cls_consultas(); 
+        cls_consultas obj = new cls_consultas();
         if (cbx_iten.getSelectedItem().equals("Todos")) {
             obj.Consulta("Tabla", tabla, "SELECT id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio  from tabla_busq_venta;");
         }
@@ -325,10 +335,8 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
         }
 
 
-
-
     }//GEN-LAST:event_btn_buscarActionPerformed
-    
+
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);
