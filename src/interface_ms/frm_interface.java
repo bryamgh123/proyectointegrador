@@ -85,9 +85,9 @@ public class frm_interface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         masinformacion1 = new javax.swing.JButton();
         masinformacion2 = new javax.swing.JButton();
-
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
-
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -616,11 +616,7 @@ public class frm_interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     public javax.swing.JLabel lbl_user;
-
     private javax.swing.JButton masinformacion1;
     private javax.swing.JButton masinformacion2;
     // End of variables declaration//GEN-END:variables
