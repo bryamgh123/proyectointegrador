@@ -6,8 +6,12 @@
 package proyectointegrador;
 
 import Entidades.TablaBusqVenta;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +28,13 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
      */
     public frm_agregarmascarilla() {
         initComponents();
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
         setLocationRelativeTo(null);
         createmodelo();
         cargar_informacion();
