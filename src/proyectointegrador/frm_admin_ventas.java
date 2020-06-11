@@ -7,8 +7,12 @@ package proyectointegrador;
 
 import Entidades.TablaBusqVenta;
 import Entidades.TablaVentas;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import static proyectointegrador.frm_agregarmascarilla.modelo;
 import static proyectointegrador.frm_ventas.modelo;
@@ -25,6 +29,13 @@ public class frm_admin_ventas extends javax.swing.JFrame {
      */
     public frm_admin_ventas() {
         initComponents();
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/admin.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
         setLocationRelativeTo(null);
         createmodelo();
         cargar_informacion();
@@ -54,6 +65,7 @@ public class frm_admin_ventas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro de ventas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel1.setOpaque(false);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,6 +123,7 @@ public class frm_admin_ventas extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel2.setOpaque(false);
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
