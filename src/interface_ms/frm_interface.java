@@ -6,8 +6,9 @@
 package interface_ms;
 
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
+
+import java.util.Random;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -32,8 +33,8 @@ public class frm_interface extends javax.swing.JFrame {
      */
     public frm_interface() {
         initComponents();
-        
-         setLocationRelativeTo(null);
+
+        setLocationRelativeTo(null);
 
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconss.png")).getImage());
 
@@ -45,7 +46,6 @@ public class frm_interface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
         }
         //setLocationRelativeTo(null);
-
         //Random aleatorio = new Random();
         //int num = aleatorio.nextInt(5);
 //System.out.print(num);
@@ -430,7 +430,7 @@ public class frm_interface extends javax.swing.JFrame {
                 }
             }, 60 * 60, SECONDS);
         }
-        
+
     }
 
 
@@ -470,17 +470,33 @@ public class frm_interface extends javax.swing.JFrame {
 
 
     private void btn_bateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bateriaActionPerformed
- 
-       
 
-        //Random
-        //int mjs = JOptionPane.PLAIN_MESSAGE;
-        //if(mjs==JOptionPane.PLAIN_MESSAGE)
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bateralta.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater84.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater50.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater26.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "Bateria baja \n" + "Cargar bateria", "        Nivel de bateria \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/bater11.png", 200, 200));
+        //} else if (busquea_usuario.equals("Usuario encontrado")) {
+        Random number = new Random();
+        for (int i = 0; i < 6; i++) {
+            int n = number.nextInt(6);
+            if (n == 1) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bateralta.png", 200, 200));
+            break;
+            }
+           else if (n == 2) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater84.png", 200, 200));
+            break;
+            }
+
+           else if (n == 3) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater50.png", 200, 200));
+           break;
+            }
+           else if (n == 4) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater26.png", 200, 200));
+           break;
+            }
+           else if (n == 5) {
+                JOptionPane.showMessageDialog(null, "Bateria baja \n" + "Cargar bateria", "        Nivel de bateria \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/bater11.png", 200, 200));
+           break;
+            }
+        }
 
         //JOptionPane.showMessageDialog(COMPONENTE, MENSAJE, TITULO, TIPO DE MENSAJE, ICONO);
         //JOptionPane.showMessageDialog(null,"Nivel_de_bateria","Bateria",JOptionPane.PLAIN_MESSAGE,new ImageIcon("imgenes/icon.png"));
@@ -510,9 +526,8 @@ public class frm_interface extends javax.swing.JFrame {
 
     private void btn_oxigenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oxigenoActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
+
     }//GEN-LAST:event_btn_oxigenoActionPerformed
 
     /**
