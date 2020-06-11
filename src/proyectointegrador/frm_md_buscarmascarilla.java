@@ -46,6 +46,15 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     public frm_md_buscarmascarilla(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
+        
         setLocationRelativeTo(null);
 
         // Close the dialog when Esc is pressed
@@ -58,16 +67,11 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                 doClose(RET_CANCEL);
             }
         });
-        try {
-            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
-            JPanel panel = (JPanel) this.getContentPane();
-            panel.setBorder(fondo);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
-        }
+        
 
-        Entidades.TablaBusqVenta obj = new Entidades.TablaBusqVenta();
-        //obj.CargarDatos(tabla);
+        //Entidades.TablaBusqVenta obj = new Entidades.TablaBusqVenta();
+        cls_metodos obj=new cls_metodos();
+        obj.CargarDatos(tabla);
 
     }
 
