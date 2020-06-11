@@ -550,6 +550,7 @@ public class frm_ventas extends javax.swing.JFrame {
         QR.frm_qr kardex = new QR.frm_qr(new javax.swing.JFrame(), true);
         kardex.setVisible(true);
         this.setVisible(false);
+        
 
     }//GEN-LAST:event_btn_comprarActionPerformed
     public void Clear(){

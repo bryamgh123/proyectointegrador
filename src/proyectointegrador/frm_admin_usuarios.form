@@ -175,6 +175,7 @@
               <Image iconType="3" name="/imagenes/espalda.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Regresar"/>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_regresarActionPerformed"/>
@@ -244,6 +245,7 @@
               <Image iconType="3" name="/imagenes/buscar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_buscarActionPerformed"/>
@@ -267,6 +269,7 @@
                 <StringItem index="3" value="Correo"/>
               </StringArray>
             </Property>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">

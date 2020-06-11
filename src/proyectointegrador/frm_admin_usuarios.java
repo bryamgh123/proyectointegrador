@@ -30,7 +30,7 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
         initComponents();
         setLocationRelativeTo(null);
          try {
-            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/fondo.png")));
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/admin.jpg")));
             JPanel panel = (JPanel) this.getContentPane();
             panel.setBorder(fondo);
         } catch (IOException ex) {
@@ -113,6 +113,7 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
         btn_regresar.setForeground(new java.awt.Color(0, 0, 0));
         btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/espalda.png"))); // NOI18N
         btn_regresar.setText("Regresar");
+        btn_regresar.setOpaque(false);
         btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_regresarActionPerformed(evt);
@@ -154,6 +155,7 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
         btn_buscar.setForeground(new java.awt.Color(0, 0, 0));
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
+        btn_buscar.setOpaque(false);
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
@@ -163,6 +165,7 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
         cbx_iten.setBackground(new java.awt.Color(255, 255, 255));
         cbx_iten.setForeground(new java.awt.Color(0, 0, 0));
         cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Nick", "Apellido", "Correo" }));
+        cbx_iten.setOpaque(false);
 
         jLabel1.setText("Seleccione:");
 

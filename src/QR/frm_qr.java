@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
+import login_usuario.frm_sistema;
+import metodos_sql.cls_metodos;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 
@@ -73,7 +75,7 @@ public class frm_qr extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         lblcodigoQR = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txt_correo = new javax.swing.JTextField();
+        txt_qr = new javax.swing.JTextField();
         generar = new javax.swing.JButton();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -111,10 +113,10 @@ public class frm_qr extends javax.swing.JDialog {
 
         jLabel1.setText("Este es el codigo QR de tu mascarilla:");
 
-        txt_correo.setText("que chucha me estas apuntando con la camara sapo mama verga");
-        txt_correo.addActionListener(new java.awt.event.ActionListener() {
+        txt_qr.setText("que chucha me estas apuntando con la camara sapo mama verga");
+        txt_qr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_correoActionPerformed(evt);
+                txt_qrActionPerformed(evt);
             }
         });
 
@@ -145,7 +147,7 @@ public class frm_qr extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 54, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -158,7 +160,7 @@ public class frm_qr extends javax.swing.JDialog {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addGap(1, 1, 1)
-                .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_qr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -184,11 +186,11 @@ public class frm_qr extends javax.swing.JDialog {
 
 public  void GenerarCodigoQR()
 {
-	ByteArrayOutputStream out=QRCode.from(this.txt_correo.getText()).to(ImageType.PNG).stream();
+	ByteArrayOutputStream out=QRCode.from(this.txt_qr.getText()).to(ImageType.PNG).stream();
 	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
 	this.lblcodigoQR.setIcon(imageIcon);
        
-        txt_correo.setVisible(false);
+        txt_qr.setVisible(false);
         
 }
 
@@ -211,9 +213,16 @@ public  void GenerarCodigoQR()
         doClose(RET_CANCEL);
     }//GEN-LAST:event_closeDialog
 
-    private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_correoActionPerformed
+    private void txt_qrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qrActionPerformed
+     metodos_sql.cls_metodos metodos = new metodos_sql.cls_metodos();
+     String busqueda_nombre = metodos.buscarNombre(txt_qr.getText());
+     
+        //login_usuario.frm_sistema ventana = new login_usuario.frm_sistema();
+        
+            txt_qr.setText(busqueda_nombre);
+            setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_txt_qrActionPerformed
 
     private void generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarActionPerformed
 
@@ -292,7 +301,7 @@ public  void GenerarCodigoQR()
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblcodigoQR;
     private javax.swing.JButton okButton;
-    private javax.swing.JTextField txt_correo;
+    private javax.swing.JTextField txt_qr;
     // End of variables declaration//GEN-END:variables
 
     private int returnStatus = RET_CANCEL;
