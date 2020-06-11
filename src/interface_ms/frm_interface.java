@@ -6,6 +6,8 @@
 package interface_ms;
 
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
 
 import java.util.Random;
 
@@ -477,24 +479,19 @@ public class frm_interface extends javax.swing.JFrame {
             int n = number.nextInt(6);
             if (n == 1) {
                 JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bateralta.png", 200, 200));
-            break;
-            }
-           else if (n == 2) {
+                break;
+            } else if (n == 2) {
                 JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater84.png", 200, 200));
-            break;
-            }
-
-           else if (n == 3) {
+                break;
+            } else if (n == 3) {
                 JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater50.png", 200, 200));
-           break;
-            }
-           else if (n == 4) {
+                break;
+            } else if (n == 4) {
                 JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater26.png", 200, 200));
-           break;
-            }
-           else if (n == 5) {
+                break;
+            } else if (n == 5) {
                 JOptionPane.showMessageDialog(null, "Bateria baja \n" + "Cargar bateria", "        Nivel de bateria \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/bater11.png", 200, 200));
-           break;
+                break;
             }
         }
 
@@ -504,23 +501,49 @@ public class frm_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_bateriaActionPerformed
 
     private void btn_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_filtroActionPerformed
+        Random number = new Random();
+        for (int i = 0; i < 6; i++) {
+            int n = number.nextInt(6);
+            if (n == 1) {
 
-        JOptionPane.showMessageDialog(null, "", "  Estado de uso del filtro \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Filtro desgastado \n" + "Cambiar filtro", "   Estado de uso del filtro \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("", 200, 200));
-        //
+                JOptionPane.showMessageDialog(null, "", "  Estado de uso del filtro \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 2) {
+                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 3) {
+                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 4) {
+                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 5) {
+                JOptionPane.showMessageDialog(null, "Filtro desgastado \n" + "Cambiar filtro", "   Estado de uso del filtro \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("", 200, 200));
+                break;
+            }
+        }
     }//GEN-LAST:event_btn_filtroActionPerformed
 
     private void btn_temperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_temperaturaActionPerformed
         // TODO add your handling code here:
+        Random number = new Random();
+        for (int i = 0; i < 5; i++) {
+            int n = number.nextInt(5);
+            if (n == 1) {
 
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Alta", "     Grado de temperatura \n " + "38°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 2) {
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 3) {
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Alta", "     Grado de temperatura \n " + "38°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 4) {
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            }
+        }
 
     }//GEN-LAST:event_btn_temperaturaActionPerformed
 
