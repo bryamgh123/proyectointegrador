@@ -593,7 +593,7 @@ public class frm_interface extends javax.swing.JFrame {
             }
         });
     }
-
+//
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_bateria;
     private javax.swing.JButton btn_filtro;
@@ -622,4 +622,15 @@ public class frm_interface extends javax.swing.JFrame {
     private javax.swing.JButton masinformacion1;
     private javax.swing.JButton masinformacion2;
     // End of variables declaration//GEN-END:variables
+
+// ventana.lbl_nombre.setText(busqueda_nombre);
+//            ventana.setVisible(true);
+//            this.dispose();
+ //String busqueda_nombre = metodos.buscarNombre(txt_correo.getText());
+
+
+
+
+
+
 }

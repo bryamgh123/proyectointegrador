@@ -24,12 +24,32 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
                       <Component id="comprar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
+
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -40,17 +60,19 @@
                   </Group>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -64,11 +86,17 @@
                   </Group>
               </Group>
               <Component id="jLabel2" min="-2" pref="352" max="-2" attributes="0"/>
+
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="319" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel1" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="347" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="323" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="comprar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,13 +105,18 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Sitka Small" size="24" style="1"/>
+
+          <Font name="Engravers MT" size="48" style="0"/>
+
         </Property>
         <Property name="text" type="java.lang.String" value="Mascarilla INT"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/anadir.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="registrarse"/>
       </Properties>
       <Events>
@@ -92,6 +125,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="comprar">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/al-por-menor.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="comprar"/>
       </Properties>
       <Events>
@@ -109,6 +145,9 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monospaced" size="13" style="1"/>
+            </Property>
             <Property name="rows" type="int" value="5"/>
             <Property name="text" type="java.lang.String" value="El proyecto est&#xe1; enfocado a la salud y ayuda a preservar la integridad de&#xa;la misma, mediante la creaci&#xf3;n de una mascarilla inteligente la cual tiene&#xa;como principal beneficio la purificaci&#xf3;n del aire que se respira.&#xa;Una mascarilla (a veces denominada respirador que no debe confundirse con &#xa;el ventilador mec&#xe1;nico) es un dispositivo dise&#xf1;ado para proteger al porta&#xa;dor de la inhalaci&#xf3;n atm&#xf3;sferas peligrosas, incluyendo humos, vapores, &#xa;gases y part&#xed;culas en suspensi&#xf3;n como polvos y microorganismos &#xa;-bacterias y virus- aerotransportados as&#xed; como para proteger a los dem&#xe1;s &#xa;cuando el portador puede contagiar alguna enfermedad.&#xa;En esta parte planteamos la creaci&#xf3;n de prototipo de software de Mascarilla &#xa;Inteligente. mascarilla inteligente, esta proporciona informaci&#xf3;n al usuario &#xa;mediante la ayuda de una  app para llevar un control, esta mascarilla filtra &#xa;el aire y detecta qu&#xe9; tan contaminado est&#xe1; el mismo dando la informaci&#xf3;n si &#xa;este es seguro mediante an&#xe1;lisis de un sensor  y la presi&#xf3;n del ox&#xed;geno, lo &#xa;regula y lo estabiliza al mismo tiempo lleva el control exacto del tiempo de &#xa;duraci&#xf3;n de filtro, la bater&#xed;a de la misma puede durar m&#xe1;s de 24h y un filtro&#xa; de ellos 14h."/>
           </Properties>
