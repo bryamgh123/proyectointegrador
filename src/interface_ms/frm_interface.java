@@ -552,26 +552,29 @@ public class frm_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_temperaturaActionPerformed
 
     private void btn_oxigenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oxigenoActionPerformed
-      
-         Random number = new Random();
-        for (int i = 0; i < 5; i++) {
-            int n = number.nextInt(5);
+
+        Random number = new Random();
+        for (int i = 0; i < 6; i++) {
+            int n = number.nextInt(6);
             if (n == 1) {
 
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Alto", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " bueno", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox1.jpeg", 250, 250));
                 break;
             } else if (n == 2) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Medio", "     Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " bn", "     Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox2.jpeg", 125, 250));
                 break;
             } else if (n == 3) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Normal", "    Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Normal", "    Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox3.jpeg", 125, 250));
                 break;
             } else if (n == 4) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Bajo", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " csn", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox4.jpeg", 125, 250));
+                break;
+            } else if (n == 5) {
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Bajo", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox5.jpeg", 125, 250));
                 break;
             }
         }
-       
+
 
     }//GEN-LAST:event_btn_oxigenoActionPerformed
 
@@ -642,11 +645,5 @@ public class frm_interface extends javax.swing.JFrame {
 // ventana.lbl_nombre.setText(busqueda_nombre);
 //            ventana.setVisible(true);
 //            this.dispose();
- //String busqueda_nombre = metodos.buscarNombre(txt_correo.getText());
-
-
-
-
-
-
+    //String busqueda_nombre = metodos.buscarNombre(txt_correo.getText());
 }
