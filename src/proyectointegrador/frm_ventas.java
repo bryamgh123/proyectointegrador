@@ -75,7 +75,7 @@ public class frm_ventas extends javax.swing.JFrame {
     }
 
     
-    
+    //pendejos
     
     
     
@@ -134,7 +134,7 @@ public class frm_ventas extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         txt_busq = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        cbx_iten = new javax.swing.JComboBox<>();
+        cbx_iten = new javax.swing.JComboBox<String>();
         btt_buscar_lista_compra = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
@@ -484,7 +484,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jLabel17.setText("Buscar en mi  lista de compra");
 
-        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
 
         btt_buscar_lista_compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar .png"))); // NOI18N
         btt_buscar_lista_compra.setText("Buscar en lista compra");
@@ -517,10 +517,11 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btt_buscar_lista_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btt_buscar_lista_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
