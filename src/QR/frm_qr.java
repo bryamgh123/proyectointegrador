@@ -196,15 +196,15 @@ public class frm_qr extends javax.swing.JDialog {
     }
 
 
-public  void GenerarCodigoQR()
-{
-	ByteArrayOutputStream out=QRCode.from(this.txt_qr.getText()).to(ImageType.PNG).stream();
-	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
-	this.lblcodigoQR.setIcon(imageIcon);
-       
-        txt_qr.setVisible(false);
-        
-}
+//public  void GenerarCodigoQR()
+//{
+//	ByteArrayOutputStream out=QRCode.from(this.txt_qr.getText()).to(ImageType.PNG).stream();
+//	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
+//	this.lblcodigoQR.setIcon(imageIcon);
+//       
+//        txt_qr.setVisible(false);
+//        
+//}
 
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
