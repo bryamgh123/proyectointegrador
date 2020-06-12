@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import net.glxn.qrgen.QRCode;
 
@@ -29,14 +30,33 @@ public class frm_ventas extends javax.swing.JFrame {
      * Creates new form frm_prototipo
      */
     public frm_ventas() {
-        initComponents();
+      initComponents();
         setLocationRelativeTo(null);
         createmodelo();
-        cargar_informacion();
+     //   cargar_informacion();
         cls_conexion cnx = new cls_conexion();
         //cnx.cargarCombo("Select concat_ws ('-', id_busq, mode_busq) AS Nombre from tabla_busq_venta", cbx_masca);
 
     }
+    
+    public void frm_ventas(){
+        
+        String txt_dni;
+        
+    }
+
+    public JTextField getTxt_dni() {
+        return txt_dni;
+    }
+
+    public void setTxt_dni(JTextField txt_dni) {
+        this.txt_dni = txt_dni;
+    }
+    
+    
+    
+    
+    
 
     /**
      * public int CortarCodigo(String Cadena) { String res = ""; for (int i = 0;
@@ -50,6 +70,13 @@ public class frm_ventas extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -587,7 +614,7 @@ public class frm_ventas extends javax.swing.JFrame {
                                                 venta.create(obj);
 
                                                 createmodelo();
-                                                cargar_informacion();
+                                               cargar_informacion();
                                                 Clear();
 
                                             }
@@ -605,7 +632,7 @@ public class frm_ventas extends javax.swing.JFrame {
                                                 venta.edit(obj);
 
                                                 createmodelo();
-                                                cargar_informacion();
+                                              cargar_informacion();
                                                 Clear();
 
                                                 ban = false;

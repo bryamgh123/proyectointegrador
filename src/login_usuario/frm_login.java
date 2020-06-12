@@ -15,6 +15,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import metodos_sql.cls_metodos;
 
+
+
+  
 /**
  *
  * @author ACER
@@ -40,6 +43,11 @@ public class frm_login extends javax.swing.JFrame {
     }
     cls_metodos metodos = new cls_metodos();
 
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -183,7 +191,7 @@ public class frm_login extends javax.swing.JFrame {
     }//GEN-LAST:event_btt_regresarActionPerformed
 
     private void btt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_entrarActionPerformed
-
+  
         ImageIcon img_gif;
         img_gif = new ImageIcon(getClass().getResource("/gifs/ezgif.com-resize.gif"));
         Icon icono_gif = new ImageIcon(img_gif.getImage().getScaledInstance(jLabel4.getWidth(), jLabel4.getHeight(), Image.SCALE_DEFAULT));
