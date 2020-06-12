@@ -7,7 +7,7 @@ package proyectointegrador;
 
 /**
  *
- * @author Bryan
+ * @author Bryanelgay
  */
 public class frm_estructura extends javax.swing.JFrame {
 
