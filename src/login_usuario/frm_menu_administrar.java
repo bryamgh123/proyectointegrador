@@ -5,6 +5,13 @@
  */
 package login_usuario;
 
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import proyectointegrador.Proyectointegrador;
+
 /**
  *
  * @author ACER
@@ -17,6 +24,13 @@ public class frm_menu_administrar extends javax.swing.JFrame {
     public frm_menu_administrar() {
         initComponents();
         setLocationRelativeTo(null);
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/login.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -37,6 +51,7 @@ public class frm_menu_administrar extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Elije que quieres administar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        jPanel1.setOpaque(false);
 
         btn_añadir_mascarilla.setText("Añadir nuevas mascarilllas");
         btn_añadir_mascarilla.addActionListener(new java.awt.event.ActionListener() {

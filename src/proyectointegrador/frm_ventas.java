@@ -9,11 +9,16 @@ import Entidades.TablaBusqVenta;
 import Entidades.TablaVentas;
 import QR.frm_qr;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import javax.swing.JTextField;
+
 import javax.swing.table.DefaultTableModel;
 import net.glxn.qrgen.QRCode;
 
@@ -36,7 +41,13 @@ public class frm_ventas extends javax.swing.JFrame {
      //   cargar_informacion();
         cls_conexion cnx = new cls_conexion();
         //cnx.cargarCombo("Select concat_ws ('-', id_busq, mode_busq) AS Nombre from tabla_busq_venta", cbx_masca);
-
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public void frm_ventas(){
@@ -130,7 +141,7 @@ public class frm_ventas extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         txt_busq = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        cbx_iten = new javax.swing.JComboBox<>();
+        cbx_iten = new javax.swing.JComboBox<String>();
         btt_buscar_lista_compra = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
@@ -140,6 +151,7 @@ public class frm_ventas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de la compra\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.setOpaque(false);
 
         jLabel1.setText("Modelo :");
 
@@ -258,6 +270,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel2.setOpaque(false);
 
         btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
@@ -349,6 +362,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel3.setOpaque(false);
 
         jLabel6.setText("Codigo postal :");
 
@@ -416,6 +430,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Forma de pago", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel4.setOpaque(false);
 
         jLabel13.setText("Numero de tarjeta :");
 
@@ -466,6 +481,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda en lista de compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        jPanel5.setOpaque(false);
 
         txt_busq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -475,7 +491,7 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jLabel17.setText("Buscar en mi  lista de compra");
 
-        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
 
         btt_buscar_lista_compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
         btt_buscar_lista_compra.setText("Buscar en lista compra");
@@ -578,14 +594,15 @@ public class frm_ventas extends javax.swing.JFrame {
         kardex.setVisible(true);
         this.setVisible(false);
 
+
     }//GEN-LAST:event_btn_comprarActionPerformed
-    public void Clear(){
+    public void Clear() {
         txt_dni.setText("");
         txt_pais.setText("");
         txt_ciud.setText("");
         txt_codi.setText("");
-        txt_dire.setText(""); 
-        
+        txt_dire.setText("");
+
     }
     private static boolean ban = false;
     private void Guardar_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_agregarActionPerformed
@@ -672,29 +689,29 @@ public class frm_ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_busqActionPerformed
 
     private void btt_buscar_lista_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_buscar_lista_compraActionPerformed
-        try{
-        cls_consultas obj = new cls_consultas();
-        if (cbx_iten.getSelectedItem().equals("Todos")) {
-            obj.Consulta("Tabla", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas ;");
-        }
-        if (cbx_iten.getSelectedItem().equals("DNI")) {
-            obj.Consulta("DNI", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where dni_ven like '%" + txt_busq.getText() + "%'");
-        }
-        if (cbx_iten.getSelectedItem().equals("Pais")) {
-            obj.Consulta("Pais", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where pais_ven like '%" + txt_busq.getText() + "%'");
-        }
-        if (cbx_iten.getSelectedItem().equals("Ciudad")) {
-            obj.Consulta("Ciudad", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where ciud_ven like '%" + txt_busq.getText() + "%'");
-        }
-        if (cbx_iten.getSelectedItem().equals("Codigo postal")) {
-            obj.Consulta("Postal", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where post_ven like '%" + txt_busq.getText() + "%'");
-        }
-        if (cbx_iten.getSelectedItem().equals("Direccion")) {
-            obj.Consulta("Direccion", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_psotal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where dire_ven like '%" + txt_busq.getText() + "%'");
-        }
-        if (cbx_iten.getSelectedItem().equals("Tarjeta credito")) {
-            obj.Consulta("Numero_de_tarjeta", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_psotal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where num_tar like '%" + txt_busq.getText()+ "%'");
-        }
+        try {
+            cls_consultas obj = new cls_consultas();
+            if (cbx_iten.getSelectedItem().equals("Todos")) {
+                obj.Consulta("Tabla", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas ;");
+            }
+            if (cbx_iten.getSelectedItem().equals("DNI")) {
+                obj.Consulta("DNI", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where dni_ven like '%" + txt_busq.getText() + "%'");
+            }
+            if (cbx_iten.getSelectedItem().equals("Pais")) {
+                obj.Consulta("Pais", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where pais_ven like '%" + txt_busq.getText() + "%'");
+            }
+            if (cbx_iten.getSelectedItem().equals("Ciudad")) {
+                obj.Consulta("Ciudad", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where ciud_ven like '%" + txt_busq.getText() + "%'");
+            }
+            if (cbx_iten.getSelectedItem().equals("Codigo postal")) {
+                obj.Consulta("Postal", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_postal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas  Where post_ven like '%" + txt_busq.getText() + "%'");
+            }
+            if (cbx_iten.getSelectedItem().equals("Direccion")) {
+                obj.Consulta("Direccion", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_psotal, dire_ven as Direccion, num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where dire_ven like '%" + txt_busq.getText() + "%'");
+            }
+            if (cbx_iten.getSelectedItem().equals("Tarjeta credito")) {
+                obj.Consulta("Numero_de_tarjeta", tabla_venta, "SELECT dni_ven as DNI, pais_ven as Pais, ciud_ven as Ciudad, post_ven as Codigo_psotal, dire_ven as Direccion,num_tar as Numero_tarjeta, fech_tar as Fecha_valida, codi_tar as CVV from tabla_ventas Where num_tar like '%" + txt_busq.getText() + "%'");
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -732,7 +749,7 @@ public class frm_ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_buscarmascarillaActionPerformed
 
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
-      try {
+        try {
 
             if (tabla_venta.getSelectedRow() >= 0) {
                 txt_dni.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 0).toString());
@@ -744,12 +761,8 @@ public class frm_ventas extends javax.swing.JFrame {
                 txt_cvv_tar.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 6).toString());
                 txt_fech_tar.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 7).toString());
                 txt_id.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 8).toString());
-                txt_mode.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 9).toString());
-                //txt_cara.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 10).toString());
-                //txt_color.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 11).toString());
-                //txt_canti.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 12).toString());
-                //txt_prec.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 13).toString());
- ban = true;
+                //txt_mode.setText(tabla_venta.getValueAt(tabla_venta.getSelectedRow(), 9).toString());
+                ban = true;
             } else {
                 JOptionPane.showMessageDialog(null, "Seleccione una fila para editar su tarjeta de creedito");
             }
@@ -762,15 +775,15 @@ public class frm_ventas extends javax.swing.JFrame {
         try {
             modelo = (new DefaultTableModel(null, new String[]{"DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Numero tarjeta", "Fecha valida", "CVV", "ID"}) {
                 Class[] types = new Class[]{
+                    java.lang.Integer.class,
                     java.lang.String.class,
                     java.lang.String.class,
                     java.lang.String.class,
                     java.lang.String.class,
-                    java.lang.String.class,
-                    java.lang.String.class,
-                    java.lang.String.class,
-                    java.lang.String.class,
-                    java.lang.String.class};
+                    java.lang.Integer.class,
+                    java.lang.Integer.class,
+                    java.lang.Integer.class,
+                    java.lang.Integer.class};
                 boolean[] canEdit = new boolean[]{false, false, false, false, false, false, false, false, false};
 
                 @Override

@@ -5,7 +5,13 @@
  */
 package login_usuario;
 
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import proyectointegrador.Proyectointegrador;
 
 /**
  *
@@ -20,6 +26,13 @@ public class frm_sistema extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/proteger.png")).getImage());
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/login.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -35,8 +48,8 @@ public class frm_sistema extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lbl_nombre = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btt_regresar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btt_regresar_menu = new javax.swing.JButton();
+        btn_entrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -44,22 +57,25 @@ public class frm_sistema extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel1.setText("ACCESO AL SISTEMA");
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Inicio de secion como:");
+
+        lbl_nombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/proteger.png"))); // NOI18N
 
-        btt_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/espalda.png"))); // NOI18N
-        btt_regresar.setText("Regresar al menu");
-        btt_regresar.addActionListener(new java.awt.event.ActionListener() {
+        btt_regresar_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/espalda.png"))); // NOI18N
+        btt_regresar_menu.setText("Regresar al menu");
+        btt_regresar_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btt_regresarActionPerformed(evt);
+                btt_regresar_menuActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Entrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_entrar.setText("Entrar");
+        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_entrarActionPerformed(evt);
             }
         });
 
@@ -83,9 +99,9 @@ public class frm_sistema extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btt_regresar)
+                        .addComponent(btt_regresar_menu)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btn_entrar)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -101,38 +117,30 @@ public class frm_sistema extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(lbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                    .addComponent(lbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btt_regresar)
-                    .addComponent(jButton2))
+                    .addComponent(btt_regresar_menu)
+                    .addComponent(btn_entrar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btt_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_regresarActionPerformed
-      frm_menu ventana= new frm_menu();
-      ventana.setVisible(true);
-       this.dispose();
-    }//GEN-LAST:event_btt_regresarActionPerformed
+    private void btt_regresar_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_regresar_menuActionPerformed
+        frm_menu ventana = new frm_menu();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btt_regresar_menuActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
+        interface_ms.frm_interface obj = new interface_ms.frm_interface();
+        obj.lbl_user.setText(lbl_nombre.getText());
+        obj.setVisible(true);
+        this.setVisible(false);
 
-             interface_ms.frm_interface karde = new  interface_ms.frm_interface();
-        
-        karde.setVisible(true);
-       this.setVisible(false);
-        
-
-
-
-
-
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +178,8 @@ public class frm_sistema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btt_regresar;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_entrar;
+    private javax.swing.JButton btt_regresar_menu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

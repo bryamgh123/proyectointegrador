@@ -6,14 +6,22 @@
 package interface_ms;
 
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
+
+import java.util.Random;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import proyectointegrador.Proyectointegrador;
 //sas
 
 /**
@@ -27,13 +35,19 @@ public class frm_interface extends javax.swing.JFrame {
      */
     public frm_interface() {
         initComponents();
-        
-         setLocationRelativeTo(null);
+
+        setLocationRelativeTo(null);
 
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconss.png")).getImage());
 
+        try {
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
+            JPanel panel = (JPanel) this.getContentPane();
+            panel.setBorder(fondo);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+        }
         //setLocationRelativeTo(null);
-
         //Random aleatorio = new Random();
         //int num = aleatorio.nextInt(5);
 //System.out.print(num);
@@ -51,12 +65,6 @@ public class frm_interface extends javax.swing.JFrame {
         cerrar_cesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        masinformacion1 = new javax.swing.JButton();
-        masinformacion2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btn_bateria = new javax.swing.JButton();
@@ -72,7 +80,14 @@ public class frm_interface extends javax.swing.JFrame {
         imgn_oxign = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jTextField3 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        masinformacion1 = new javax.swing.JButton();
+        masinformacion2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbl_user = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,35 +98,16 @@ public class frm_interface extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("nombre del ususario:");
+        jLabel1.setText("Nombre del ususario :");
 
+        jLabel2.setFont(new java.awt.Font("Sitka Small", 1, 24)); // NOI18N
         jLabel2.setText("Mascarilla INT");
 
-        jLabel4.setText("imagen");
-
-        jLabel5.setText("imagen");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("Informacion de como cambiar un filtro");
-
-        masinformacion1.setText("mas informacion");
-        masinformacion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                masinformacion1ActionPerformed(evt);
-            }
-        });
-
-        masinformacion2.setText("mas informacion");
-        masinformacion2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                masinformacion2ActionPerformed(evt);
-            }
-        });
-
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Control de mascarilla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel5.setOpaque(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Bateria", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel1.setOpaque(false);
 
         btn_bateria.setText("Estado de bateria");
         btn_bateria.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +142,7 @@ public class frm_interface extends javax.swing.JFrame {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel2.setOpaque(false);
 
         btn_filtro.setText("Estado del filtro");
         btn_filtro.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +176,7 @@ public class frm_interface extends javax.swing.JFrame {
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Temperatura", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel3.setOpaque(false);
 
         btn_temperatura.setText("Nivel de temperatura");
         btn_temperatura.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +210,7 @@ public class frm_interface extends javax.swing.JFrame {
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nvl Oxigeno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 13))); // NOI18N
+        jPanel4.setOpaque(false);
 
         btn_oxigeno.setText("Nivel de oxigeno");
         btn_oxigeno.addActionListener(new java.awt.event.ActionListener() {
@@ -270,79 +269,130 @@ public class frm_interface extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Informacion del corona");
+        jTextArea1.setText("Según la Organización Mundial de la Salud,el uso mascarilla médica\nes una de las medidas profilácticas que limita la propagaciónde determinadas \nenfermedades respiratorias como el coronavirus. Sin embargo, la utilización \nde una mascarilla no basta para proporcionar un nivel suficiente de protección,\npor lo que se deben adoptar también otras medidas de higiene.\n");
         jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mantenimiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jPanel6.setOpaque(false);
+
+        masinformacion1.setText("mas informacion");
+        masinformacion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masinformacion1ActionPerformed(evt);
+            }
+        });
+
+        masinformacion2.setText("mas informacion");
+        masinformacion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masinformacion2ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText(" La forma correcta de colocarse la mascarilla.");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Informacion de como cambiar un filtro.");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/coronavirus (1).png"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mascarilla-respirador (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3))
+                .addGap(57, 57, 57)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(masinformacion1)
+                    .addComponent(masinformacion2))
+                .addContainerGap(205, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(masinformacion1))))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(masinformacion2)
+                            .addComponent(jLabel6))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lbl_user.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_user.setForeground(new java.awt.Color(60, 63, 65));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cerrar_cesion))
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(105, 105, 105)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                                    .addComponent(jTextField1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(masinformacion1)
-                                    .addComponent(masinformacion2)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(351, 351, 351)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 4, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(91, 91, 91)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(288, 288, 288)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(36, 36, 36)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lbl_user, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cerrar_cesion))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cerrar_cesion)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(masinformacion2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(masinformacion1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                    .addComponent(lbl_user, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cerrar_cesion)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -388,7 +438,7 @@ public class frm_interface extends javax.swing.JFrame {
                 }
             }, 60 * 60, SECONDS);
         }
-        
+
     }
 
 
@@ -428,17 +478,28 @@ public class frm_interface extends javax.swing.JFrame {
 
 
     private void btn_bateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bateriaActionPerformed
- 
-       
 
-        //Random
-        //int mjs = JOptionPane.PLAIN_MESSAGE;
-        //if(mjs==JOptionPane.PLAIN_MESSAGE)
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bateralta.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater84.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater50.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater26.png", 200, 200));
-        JOptionPane.showMessageDialog(null, "Bateria baja \n" + "Cargar bateria", "        Nivel de bateria \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/bater11.png", 200, 200));
+        //} else if (busquea_usuario.equals("Usuario encontrado")) {
+        Random number = new Random();
+        for (int i = 0; i < 6; i++) {
+            int n = number.nextInt(6);
+            if (n == 1) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bateralta.png", 200, 200));
+                break;
+            } else if (n == 2) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater84.png", 200, 200));
+                break;
+            } else if (n == 3) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater50.png", 200, 200));
+                break;
+            } else if (n == 4) {
+                JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater26.png", 200, 200));
+                break;
+            } else if (n == 5) {
+                JOptionPane.showMessageDialog(null, "Bateria baja \n" + "Cargar bateria", "        Nivel de bateria \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/bater11.png", 200, 200));
+                break;
+            }
+        }
 
         //JOptionPane.showMessageDialog(COMPONENTE, MENSAJE, TITULO, TIPO DE MENSAJE, ICONO);
         //JOptionPane.showMessageDialog(null,"Nivel_de_bateria","Bateria",JOptionPane.PLAIN_MESSAGE,new ImageIcon("imgenes/icon.png"));
@@ -446,31 +507,56 @@ public class frm_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_bateriaActionPerformed
 
     private void btn_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_filtroActionPerformed
+        Random number = new Random();
+        for (int i = 0; i < 6; i++) {
+            int n = number.nextInt(6);
+            if (n == 1) {
 
-        JOptionPane.showMessageDialog(null, "", "  Estado de uso del filtro \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Filtro desgastado \n" + "Cambiar filtro", "   Estado de uso del filtro \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("", 200, 200));
-        //
+                JOptionPane.showMessageDialog(null, "", "  Estado de uso del filtro \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 2) {
+                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 3) {
+                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 4) {
+                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 5) {
+                JOptionPane.showMessageDialog(null, "Filtro desgastado \n" + "Cambiar filtro", "   Estado de uso del filtro \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("", 200, 200));
+                break;
+            }
+        }
     }//GEN-LAST:event_btn_filtroActionPerformed
 
     private void btn_temperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_temperaturaActionPerformed
         // TODO add your handling code here:
+        Random number = new Random();
+        for (int i = 0; i < 5; i++) {
+            int n = number.nextInt(5);
+            if (n == 1) {
 
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Alta", "     Grado de temperatura \n " + "38°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-        JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
-
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 2) {
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 3) {
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Alta", "     Grado de temperatura \n " + "38°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            } else if (n == 4) {
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                break;
+            }
+        }
 
     }//GEN-LAST:event_btn_temperaturaActionPerformed
 
     private void btn_oxigenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oxigenoActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
+
     }//GEN-LAST:event_btn_oxigenoActionPerformed
 
     /**
@@ -520,18 +606,19 @@ public class frm_interface extends javax.swing.JFrame {
     private javax.swing.JLabel imgn_tem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JLabel lbl_user;
     private javax.swing.JButton masinformacion1;
     private javax.swing.JButton masinformacion2;
     // End of variables declaration//GEN-END:variables
