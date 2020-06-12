@@ -256,7 +256,7 @@ public class frm_interface extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,9 +270,11 @@ public class frm_interface extends javax.swing.JFrame {
         );
 
         jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 51));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("Según la Organización Mundial de la Salud,el uso mascarilla médica\nes una de las medidas profilácticas que limita la propagaciónde determinadas \nenfermedades respiratorias como el coronavirus. Sin embargo, la utilización \nde una mascarilla no basta para proporcionar un nivel suficiente de protección,\npor lo que se deben adoptar también otras medidas de higiene.\n");
+        jTextArea1.setOpaque(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mantenimiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -319,7 +321,7 @@ public class frm_interface extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(masinformacion1)
                     .addComponent(masinformacion2))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,37 +355,33 @@ public class frm_interface extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_user, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(91, 91, 91)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(288, 288, 288)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lbl_user, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cerrar_cesion))))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cerrar_cesion)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_user, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cerrar_cesion)
-                        .addComponent(jLabel1)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lbl_user, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addComponent(cerrar_cesion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -512,19 +510,19 @@ public class frm_interface extends javax.swing.JFrame {
             int n = number.nextInt(6);
             if (n == 1) {
 
-                JOptionPane.showMessageDialog(null, "", "  Estado de uso del filtro \n " + "100%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Nuevo", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro.png", 200, 200));
                 break;
             } else if (n == 2) {
-                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "84%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Buen estado", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro2.jpeg", 200, 200));
                 break;
             } else if (n == 3) {
-                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "50%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Medio uso", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro3.jpeg", 200, 200));
                 break;
             } else if (n == 4) {
-                JOptionPane.showMessageDialog(null, "", "   Estado de uso del filtro \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Maltratado", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro4.jpeg", 200, 200));
                 break;
             } else if (n == 5) {
-                JOptionPane.showMessageDialog(null, "Filtro desgastado \n" + "Cambiar filtro", "   Estado de uso del filtro \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n" + "Desgastado", "   Estado de uso del filtro", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/filtro5.jpeg", 200, 200));
                 break;
             }
         }
@@ -537,16 +535,16 @@ public class frm_interface extends javax.swing.JFrame {
             int n = number.nextInt(5);
             if (n == 1) {
 
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo4.jpg", 125, 250));
                 break;
             } else if (n == 2) {
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo3.jpg", 125, 250));
                 break;
             } else if (n == 3) {
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Alta", "     Grado de temperatura \n " + "38°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Alta", "     Grado de temperatura \n " + "38°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo2.jpg", 125, 250));
                 break;
             } else if (n == 4) {
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("", 200, 200));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo1.jpg", 125, 250));
                 break;
             }
         }
@@ -554,8 +552,26 @@ public class frm_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_temperaturaActionPerformed
 
     private void btn_oxigenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oxigenoActionPerformed
-        // TODO add your handling code here:
+      
+         Random number = new Random();
+        for (int i = 0; i < 5; i++) {
+            int n = number.nextInt(5);
+            if (n == 1) {
 
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Alto", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                break;
+            } else if (n == 2) {
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Medio", "     Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                break;
+            } else if (n == 3) {
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Normal", "    Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                break;
+            } else if (n == 4) {
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Bajo", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                break;
+            }
+        }
+       
 
     }//GEN-LAST:event_btn_oxigenoActionPerformed
 

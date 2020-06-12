@@ -465,7 +465,6 @@ public class frm_ventas extends javax.swing.JFrame {
 
         cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
 
-        btt_buscar_lista_compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
         btt_buscar_lista_compra.setText("Buscar en lista compra");
         btt_buscar_lista_compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
