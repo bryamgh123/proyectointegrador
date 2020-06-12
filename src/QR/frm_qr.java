@@ -41,7 +41,7 @@ public class frm_qr extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
-        // Close the dialog when Esc is pressed
+      // Close the dialog when Esc is pressed
         String cancelName = "cancel";
         InputMap inputMap = getRootPane().getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), cancelName);
@@ -52,7 +52,7 @@ public class frm_qr extends javax.swing.JDialog {
             }
         });
         GenerarCodigoQR();
-    }
+   }
 
     /**
      * @return the return status of this dialog - one of RET_OK or RET_CANCEL
@@ -196,15 +196,15 @@ public class frm_qr extends javax.swing.JDialog {
     }
 
 
-public  void GenerarCodigoQR()
-{
-	ByteArrayOutputStream out=QRCode.from(this.txt_qr.getText()).to(ImageType.PNG).stream();
-	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
-	this.lblcodigoQR.setIcon(imageIcon);
-       
-        txt_qr.setVisible(false);
+//public  void GenerarCodigoQR()
+//{
+//	ByteArrayOutputStream out=QRCode.from(this.txt_qr.getText()).to(ImageType.PNG).stream();
+//	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
+//	this.lblcodigoQR.setIcon(imageIcon);
+//       
+//        txt_qr.setVisible(false);
         
-}
+//}
 
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed

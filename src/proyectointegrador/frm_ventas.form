@@ -641,10 +641,12 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_busq" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbx_iten" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btt_buscar_lista_compra" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_busq" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbx_iten" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -682,11 +684,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btt_buscar_lista_compra">
           <Properties>
-
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/buscar .png"/>
             </Property>
-
             <Property name="text" type="java.lang.String" value="Buscar en lista compra"/>
           </Properties>
           <Events>
