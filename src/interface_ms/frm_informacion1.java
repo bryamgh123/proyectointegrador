@@ -120,11 +120,9 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel9.setOpaque(false);
 
         jLabel12.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("interno");
 
         jLabel13.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Doble el clip nasal");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -144,7 +142,7 @@ public class frm_informacion1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -160,7 +158,7 @@ public class frm_informacion1 extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,11 +179,9 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel10.setOpaque(false);
 
         jLabel14.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("de la mascarilla");
 
         jLabel15.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Correcta colocacion ");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -241,15 +237,12 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel13.setOpaque(false);
 
         jLabel16.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("superior en la parte");
 
         jLabel26.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Coloque el elástico");
 
         jLabel27.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("superior de la cabeza.");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -308,19 +301,15 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel12.setOpaque(false);
 
         jLabel22.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Colocar el respirador por");
 
         jLabel23.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("debajo del mentón con el clip");
 
         jLabel24.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("nasal hacia arriba y colocar ");
 
         jLabel25.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("el elástico inferior en la nuca.");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -376,15 +365,12 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel14.setOpaque(false);
 
         jLabel28.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("superior en la parte");
 
         jLabel29.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Coloque el elástico");
 
         jLabel30.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("superior de la cabeza.");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -443,23 +429,18 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel11.setOpaque(false);
 
         jLabel17.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Sostenga el respirador de");
 
         jLabel18.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("manera que la parte externa");
 
         jLabel19.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("este apoyada en la palma y");
 
         jLabel20.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("los elásticos permanezcan");
 
         jLabel21.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("por debajo de la mano.");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -475,7 +456,7 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(jLabel17)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -546,15 +527,12 @@ public class frm_informacion1 extends javax.swing.JFrame {
         jPanel8.setOpaque(false);
 
         jLabel5.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("es impedir la inhalación de contaminantes externos para evitar daño");
 
         jLabel10.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("El principal objetivo de las mascarillas de protección respiratoria ");
 
         jLabel11.setFont(new java.awt.Font("Footlight MT Light", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("a la salud del usuario, por ello es recomendable su correcta colocación.");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -598,10 +576,9 @@ public class frm_informacion1 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
