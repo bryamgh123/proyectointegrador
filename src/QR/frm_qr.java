@@ -196,7 +196,9 @@ public class frm_qr extends javax.swing.JDialog {
 //	this.lblcodigoQR.setIcon(imageIcon);
 //       
 //        txt_qr.setVisible(false);
-        
+
+//        
+
 //}
 
 
