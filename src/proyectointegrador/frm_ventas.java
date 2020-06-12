@@ -5,7 +5,7 @@
  */
 package proyectointegrador;
 
-import Entidades.TablaBusqVenta;
+
 import Entidades.TablaVentas;
 import QR.frm_qr;
 import java.io.ByteArrayOutputStream;
@@ -13,10 +13,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
+import javax.swing.JTextField;
+
 import javax.swing.table.DefaultTableModel;
 import net.glxn.qrgen.QRCode;
 
@@ -33,20 +34,33 @@ public class frm_ventas extends javax.swing.JFrame {
      * Creates new form frm_prototipo
      */
     public frm_ventas() {
-        initComponents();
+      initComponents();
         setLocationRelativeTo(null);
         createmodelo();
-        cargar_informacion();
+     //   cargar_informacion();
         cls_conexion cnx = new cls_conexion();
-        //cnx.cargarCombo("Select concat_ws ('-', id_busq, mode_busq) AS Nombre from tabla_busq_venta", cbx_masca);
-        try {
-            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
-            JPanel panel = (JPanel) this.getContentPane();
-            panel.setBorder(fondo);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
-        }
+     
+        
     }
+    
+    public void frm_ventas(){
+        
+        String txt_dni;
+        
+    }
+
+    public JTextField getTxt_dni() {
+        return txt_dni;
+    }
+
+    public void setTxt_dni(JTextField txt_dni) {
+        this.txt_dni = txt_dni;
+    }
+    
+    
+    
+    
+    
 
     /**
      * public int CortarCodigo(String Cadena) { String res = ""; for (int i = 0;
@@ -60,6 +74,13 @@ public class frm_ventas extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,7 +134,7 @@ public class frm_ventas extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         txt_busq = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        cbx_iten = new javax.swing.JComboBox<String>();
+        cbx_iten = new javax.swing.JComboBox<>();
         btt_buscar_lista_compra = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
@@ -324,11 +345,11 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_editar)
                     .addComponent(Guardar_agregar)
                     .addComponent(btn_comprar)
                     .addComponent(btn_eliminar)
-                    .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_editar))
                 .addGap(11, 11, 11))
         );
 
@@ -463,7 +484,10 @@ public class frm_ventas extends javax.swing.JFrame {
 
         jLabel17.setText("Buscar en mi  lista de compra");
 
-        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
+        cbx_iten.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Pais", "Ciudad", "Codigo postal", "Direccion", "Tarjeta credito" }));
+
+
+        btt_buscar_lista_compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar .png"))); // NOI18N
 
         btt_buscar_lista_compra.setText("Buscar en lista compra");
         btt_buscar_lista_compra.addActionListener(new java.awt.event.ActionListener() {
@@ -496,9 +520,10 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btt_buscar_lista_compra)
                     .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cbx_iten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btt_buscar_lista_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -530,8 +555,9 @@ public class frm_ventas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -602,7 +628,7 @@ public class frm_ventas extends javax.swing.JFrame {
                                                 venta.create(obj);
 
                                                 createmodelo();
-                                                cargar_informacion();
+                                               cargar_informacion();
                                                 Clear();
 
                                             }
@@ -620,7 +646,7 @@ public class frm_ventas extends javax.swing.JFrame {
                                                 venta.edit(obj);
 
                                                 createmodelo();
-                                                cargar_informacion();
+                                              cargar_informacion();
                                                 Clear();
 
                                                 ban = false;
@@ -706,19 +732,6 @@ public class frm_ventas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
-    private void btn_buscarmascarillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarmascarillaActionPerformed
-        frm_md_buscarmascarilla kardex = new frm_md_buscarmascarilla(new javax.swing.JFrame(), true);
-        kardex.setVisible(true);
-        txt_id.setText(String.valueOf(kardex.getId_busq()));
-        txt_mode.setText(kardex.getMode_busq());
-        txt_cara.setText(kardex.getCara_busq());
-        txt_color.setText(kardex.getColo_busq());
-        txt_canti.setText(kardex.getCant_busq());
-        txt_prec.setText(kardex.getPrecio_busq());
-
-
-    }//GEN-LAST:event_btn_buscarmascarillaActionPerformed
-
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
         try {
 
@@ -741,6 +754,18 @@ public class frm_ventas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_buscarmascarillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarmascarillaActionPerformed
+        frm_md_buscarmascarilla kardex = new frm_md_buscarmascarilla(new javax.swing.JFrame(), true);
+        kardex.setVisible(true);
+        txt_id.setText(String.valueOf(kardex.getId_busq()));
+        txt_mode.setText(kardex.getMode_busq());
+        txt_cara.setText(kardex.getCara_busq());
+        txt_color.setText(kardex.getColo_busq());
+        txt_canti.setText(kardex.getCant_busq());
+        txt_prec.setText(kardex.getPrecio_busq());
+
+    }//GEN-LAST:event_btn_buscarmascarillaActionPerformed
 
     private void createmodelo() {
         try {
