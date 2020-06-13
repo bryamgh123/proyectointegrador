@@ -542,7 +542,7 @@ public class frm_interface extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "", "        Nivel de bateria \n " + "26%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater26.png", 200, 200));
                 break;
             } else if (n == 5) {
-                JOptionPane.showMessageDialog(null, "Bateria baja \n" + "Cargar bateria", "        Nivel de bateria \n " + "11%", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/bater11.png", 200, 200));
+                JOptionPane.showMessageDialog(null, "Bateria baja \n" + "Cargar bateria", "        Nivel de bateria \n " + "11%", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/bater11.png", 200, 200));
                 break;
             }
         }
@@ -558,19 +558,19 @@ public class frm_interface extends javax.swing.JFrame {
             int n = number.nextInt(6);
             if (n == 1) {
 
-                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Nuevo", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro.png", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "  Nuevo", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro.png", 200, 200));
                 break;
             } else if (n == 2) {
-                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Buen estado", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro2.jpeg", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "  Buen estado", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro2.jpeg", 200, 200));
                 break;
             } else if (n == 3) {
-                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Medio uso", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro3.jpeg", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "  Medio uso", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro3.jpeg", 200, 200));
                 break;
             } else if (n == 4) {
-                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "Maltratado", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro4.jpeg", 200, 200));
+                JOptionPane.showMessageDialog(null, "Estado del filtro \n " + "  Maltratado", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro4.jpeg", 200, 200));
                 break;
             } else if (n == 5) {
-                JOptionPane.showMessageDialog(null, "Estado del filtro \n" + "Desgastado", "   Estado de uso del filtro", JOptionPane.INFORMATION_MESSAGE, icono("/imagenes/filtro5.jpeg", 200, 200));
+                JOptionPane.showMessageDialog(null, "Filtro desgastado \n" + "  Cambiar filtro", "   Estado de uso del filtro", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/filtro5.jpeg", 200, 200));
                 break;
             }
         }
@@ -583,16 +583,16 @@ public class frm_interface extends javax.swing.JFrame {
             int n = number.nextInt(5);
             if (n == 1) {
 
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo4.jpg", 125, 250));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + "   Alta", "     Grado de temperatura \n " + "37°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo4.jpg", 125, 250));
                 break;
             } else if (n == 2) {
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo3.jpg", 125, 250));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + "   Normal", "     Grado de temperatura \n " + "36°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo3.jpg", 125, 250));
                 break;
             } else if (n == 3) {
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Alta", "     Grado de temperatura \n " + "38°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo2.jpg", 125, 250));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + "   Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo2.jpg", 125, 250));
                 break;
             } else if (n == 4) {
-                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + " Baja", "     Grado de temperatura \n " + "35°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo1.jpg", 125, 250));
+                JOptionPane.showMessageDialog(null, "Temperatura Corporal \n" + "   Muy baja", "     Grado de temperatura \n " + "34°C", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/termo1.jpg", 125, 250));
                 break;
             }
         }
@@ -600,26 +600,29 @@ public class frm_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_temperaturaActionPerformed
 
     private void btn_oxigenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oxigenoActionPerformed
-      
-         Random number = new Random();
-        for (int i = 0; i < 5; i++) {
-            int n = number.nextInt(5);
+
+        Random number = new Random();
+        for (int i = 0; i < 6; i++) {
+            int n = number.nextInt(6);
             if (n == 1) {
 
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Alto", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " bueno", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox1.jpeg", 250, 125));
                 break;
             } else if (n == 2) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Medio", "     Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " bn", "        Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox2.jpeg", 250, 125));
                 break;
             } else if (n == 3) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Normal", "    Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Normal", "       Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox3.jpeg", 250, 125));
                 break;
             } else if (n == 4) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Bajo", "      Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("", 125, 250));
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " csn", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox4.jpeg", 250, 125));
+                break;
+            } else if (n == 5) {
+                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Bajo", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox5.jpeg", 250, 125));
                 break;
             }
         }
-       
+
 
     }//GEN-LAST:event_btn_oxigenoActionPerformed
 
@@ -694,11 +697,5 @@ public class frm_interface extends javax.swing.JFrame {
 // ventana.lbl_nombre.setText(busqueda_nombre);
 //            ventana.setVisible(true);
 //            this.dispose();
- //String busqueda_nombre = metodos.buscarNombre(txt_correo.getText());
-
-
-
-
-
-
+    //String busqueda_nombre = metodos.buscarNombre(txt_correo.getText());
 }
