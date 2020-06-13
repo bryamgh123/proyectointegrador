@@ -36,10 +36,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class TablaVentas implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
     @Column(name = "dni_ven")
-    private Integer dniVen;
+    private int dniVen;
     @Basic(optional = false)
     @Column(name = "pais_ven")
     private String paisVen;
@@ -55,9 +54,10 @@ public class TablaVentas implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_busq")
     private int idBusq;
+    @Id
     @Basic(optional = false)
     @Column(name = "num_tar")
-    private int numTar;
+    private Integer numTar;
     @Basic(optional = false)
     @Column(name = "fech_tar")
     private int fechTar;
@@ -68,27 +68,27 @@ public class TablaVentas implements Serializable {
     public TablaVentas() {
     }
 
-    public TablaVentas(Integer dniVen) {
-        this.dniVen = dniVen;
+    public TablaVentas(Integer numTar) {
+        this.numTar = numTar;
     }
 
-    public TablaVentas(Integer dniVen, String paisVen, String ciudVen, String postVen, String direVen, int idBusq, int numTar, int fechTar, int codiTar) {
+    public TablaVentas(Integer numTar, int dniVen, String paisVen, String ciudVen, String postVen, String direVen, int idBusq, int fechTar, int codiTar) {
+        this.numTar = numTar;
         this.dniVen = dniVen;
         this.paisVen = paisVen;
         this.ciudVen = ciudVen;
         this.postVen = postVen;
         this.direVen = direVen;
         this.idBusq = idBusq;
-        this.numTar = numTar;
         this.fechTar = fechTar;
         this.codiTar = codiTar;
     }
 
-    public Integer getDniVen() {
+    public int getDniVen() {
         return dniVen;
     }
 
-    public void setDniVen(Integer dniVen) {
+    public void setDniVen(int dniVen) {
         this.dniVen = dniVen;
     }
 
@@ -132,11 +132,11 @@ public class TablaVentas implements Serializable {
         this.idBusq = idBusq;
     }
 
-    public int getNumTar() {
+    public Integer getNumTar() {
         return numTar;
     }
 
-    public void setNumTar(int numTar) {
+    public void setNumTar(Integer numTar) {
         this.numTar = numTar;
     }
 
@@ -159,7 +159,7 @@ public class TablaVentas implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (dniVen != null ? dniVen.hashCode() : 0);
+        hash += (numTar != null ? numTar.hashCode() : 0);
         return hash;
     }
 
@@ -170,7 +170,7 @@ public class TablaVentas implements Serializable {
             return false;
         }
         TablaVentas other = (TablaVentas) object;
-        if ((this.dniVen == null && other.dniVen != null) || (this.dniVen != null && !this.dniVen.equals(other.dniVen))) {
+        if ((this.numTar == null && other.numTar != null) || (this.numTar != null && !this.numTar.equals(other.numTar))) {
             return false;
         }
         return true;
@@ -178,7 +178,7 @@ public class TablaVentas implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.TablaVentas[ dniVen=" + dniVen + " ]";
+        return "Entidades.TablaVentas[ numTar=" + numTar + " ]";
     }
     
 }

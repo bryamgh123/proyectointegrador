@@ -50,20 +50,20 @@ public class frm_ventas extends javax.swing.JFrame {
         
     }
     
-    public void frm_ventas(){
-        
-        String txt_dni;
-        
-    }
-
-    public JTextField getTxt_dni() {
-        return txt_dni;
-    }
-
-    public void setTxt_dni(JTextField txt_dni) {
-        this.txt_dni = txt_dni;
-    }
-    
+//    public void frm_ventas(){
+//        
+//        String txt_dni;
+//        
+//    }
+//
+//    public JTextField getTxt_dni() {
+//        return txt_dni;
+//    }
+//
+//    public void setTxt_dni(JTextField txt_dni) {
+//        this.txt_dni = txt_dni;
+//    }
+//    
     
     
     

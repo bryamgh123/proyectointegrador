@@ -203,7 +203,7 @@ public class frm_qr extends javax.swing.JDialog {
 
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        proyectointegrador.frm_estructura ventana = new proyectointegrador.frm_estructura();
+        proyectointegrador.frm_estructur ventana = new proyectointegrador.frm_estructur();
         ventana.setVisible(true);
 
         doClose(RET_OK);

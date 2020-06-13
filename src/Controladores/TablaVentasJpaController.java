@@ -41,7 +41,7 @@ public class TablaVentasJpaController implements Serializable {
             em.persist(tablaVentas);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findTablaVentas(tablaVentas.getDniVen()) != null) {
+            if (findTablaVentas(tablaVentas.getNumTar()) != null) {
                 throw new PreexistingEntityException("TablaVentas " + tablaVentas + " already exists.", ex);
             }
             throw ex;
@@ -62,7 +62,7 @@ public class TablaVentasJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = tablaVentas.getDniVen();
+                Integer id = tablaVentas.getNumTar();
                 if (findTablaVentas(id) == null) {
                     throw new NonexistentEntityException("The tablaVentas with id " + id + " no longer exists.");
                 }
@@ -83,7 +83,7 @@ public class TablaVentasJpaController implements Serializable {
             TablaVentas tablaVentas;
             try {
                 tablaVentas = em.getReference(TablaVentas.class, id);
-                tablaVentas.getDniVen();
+                tablaVentas.getNumTar();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The tablaVentas with id " + id + " no longer exists.", enfe);
             }

@@ -5,10 +5,12 @@
  */
 package proyectointegrador;
 
+import Entidades.TablaBusqVenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
@@ -17,12 +19,16 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.swing.table.DefaultTableModel;
+import static proyectointegrador.frm_agregarmascarilla.modelo;
 
 /**
  *
  * @author clina
  */
 public class frm_md_buscarmascarilla extends javax.swing.JDialog {
+public static DefaultTableModel modelo;
+    Controladores.TablaBusqVentaJpaController aggmasca = new Controladores.TablaBusqVentaJpaController();
 
     /**
      * A return status code - returned if Cancel button has been pressed
@@ -46,6 +52,8 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
     public frm_md_buscarmascarilla(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        createmodelo();
+        cargar_informacion();
         
         try {
             Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
@@ -67,11 +75,6 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
                 doClose(RET_CANCEL);
             }
         });
-        
-
-        //Entidades.TablaBusqVenta obj = new Entidades.TablaBusqVenta();
-        cls_metodos obj=new cls_metodos();
-        obj.CargarDatos(tabla);
 
     }
 
@@ -341,6 +344,57 @@ public class frm_md_buscarmascarilla extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btn_buscarActionPerformed
 
+    private void createmodelo() {
+        try {
+            modelo = (new DefaultTableModel(null, new String[]{"ID", "Modelo", "Caracteristica", "Color", "Cantidad", "Precio"}) {
+                Class[] types = new Class[]{
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class
+                };
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false};
+                
+                @Override
+                public Class getColumnClass(int columnindex) {
+                    return types[columnindex];
+                }
+                
+                @Override
+                public boolean isCellEditable(int rowindex, int colindex) {
+                    return canEdit[colindex];
+                }
+            });
+            tabla.setModel(modelo);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.toString() + "error2");
+        }
+    }
+    
+    private void cargar_informacion() {
+        try {
+            Object[] o = null;
+            List<TablaBusqVenta> lista = aggmasca.findTablaBusqVentaEntities();
+            for (int i = 0; i < lista.size(); i++) {
+                modelo.addRow(o);
+                modelo.setValueAt(lista.get(i).getIdBusq(), i, 0);
+                modelo.setValueAt(lista.get(i).getModeBusq(), i, 1);
+                modelo.setValueAt(lista.get(i).getCaraBusq(), i, 2);
+                modelo.setValueAt(lista.get(i).getColoBusq(), i, 3);
+                modelo.setValueAt(lista.get(i).getCantBusq(), i, 4);
+                modelo.setValueAt(lista.get(i).getPrecBusq(), i, 5);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
+
+    
+    
+    
+    
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);

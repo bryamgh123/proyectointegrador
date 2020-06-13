@@ -191,7 +191,8 @@ public class frm_login extends javax.swing.JFrame {
     }//GEN-LAST:event_btt_regresarActionPerformed
 
     private void btt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_entrarActionPerformed
-  
+  //, icono("/imagenes/bateralta.png", 200, 200)
+  //, "Bienvenido", JOptionPane.ERROR_MESSAGE
         ImageIcon img_gif;
         img_gif = new ImageIcon(getClass().getResource("/gifs/ezgif.com-resize.gif"));
         Icon icono_gif = new ImageIcon(img_gif.getImage().getScaledInstance(jLabel4.getWidth(), jLabel4.getHeight(), Image.SCALE_DEFAULT));

@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Bryan
  */
 public class cls_conexion {
-    
+    //proyectointegrador.cls_conexion
       Connection Conec;
     Statement St;
 

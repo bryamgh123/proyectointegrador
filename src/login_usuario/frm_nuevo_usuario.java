@@ -34,6 +34,7 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
         }
+        
     }
 
     cls_metodos metodos = new cls_metodos();
@@ -193,7 +194,7 @@ public class frm_nuevo_usuario extends javax.swing.JFrame {
                             int i = metodos.guardar(txt_nick.getText(), txt_ape.getText(), txt_correo.getText(), txt_contra.getText());
                             if (i > 0) {
 
-                                JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
+                                JOptionPane.showMessageDialog(null, "Datos guardados correctamente", "Datos guardados", JOptionPane.ERROR_MESSAGE);
 
                             }
                         } else {
