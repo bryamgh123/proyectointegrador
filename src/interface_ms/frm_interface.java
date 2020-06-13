@@ -606,19 +606,19 @@ public class frm_interface extends javax.swing.JFrame {
             int n = number.nextInt(6);
             if (n == 1) {
 
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " bueno", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox1.jpeg", 250, 125));
+                JOptionPane.showMessageDialog(null, "exceso de oxigeno", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox1.jpeg", 250, 125));
                 break;
             } else if (n == 2) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " bn", "        Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox2.jpeg", 250, 125));
+                JOptionPane.showMessageDialog(null, "Niveles elevados de Oxigeno", "        Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox2.jpeg", 250, 125));
                 break;
             } else if (n == 3) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Normal", "       Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox3.jpeg", 250, 125));
+                JOptionPane.showMessageDialog(null, "Oxigeno promedio", "       Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox3.jpeg", 250, 125));
                 break;
             } else if (n == 4) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " csn", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox4.jpeg", 250, 125));
+                JOptionPane.showMessageDialog(null, "Bajo nivel de oxigeno", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox4.jpeg", 250, 125));
                 break;
             } else if (n == 5) {
-                JOptionPane.showMessageDialog(null, "Nivel de oxigeno \n" + " Bajo", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox5.jpeg", 250, 125));
+                JOptionPane.showMessageDialog(null, " Insuficiencia de oxigeno", "         Nivel de oxigeno ", JOptionPane.PLAIN_MESSAGE, icono("/imagenes/ox5.jpeg", 250, 125));
                 break;
             }
         }
