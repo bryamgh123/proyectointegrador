@@ -27,11 +27,11 @@ public class frm_estructur extends javax.swing.JFrame {
         initComponents();
          setLocationRelativeTo(null);
         try {
-            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/verd.jpg")));
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
             JPanel panel = (JPanel) this.getContentPane();
             panel.setBorder(fondo);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no cargo fondo", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -61,6 +61,7 @@ public class frm_estructur extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("El proyecto está enfocado a la salud y ayuda a preservar la integridad de\nla misma, mediante la creación de una mascarilla inteligente la cual tiene\ncomo principal beneficio la purificación del aire que se respira.\nUna mascarilla (a veces denominada respirador que no debe confundirse con\nel ventilador mecánico) es un dispositivo diseñado para proteger al portador\nde la inhalación atmósferas peligrosas, incluyendo humos, vapores,\ngases y partículas en suspensión como polvos y microorganismos\nbacterias y virus- aerotransportados así como para proteger a los demás\ncuando el portador puede contagiar alguna enfermedad.\nEn esta parte planteamos la creación de prototipo de software de Mascarilla\nInteligente. mascarilla inteligente, esta proporciona información al usuario\nmediante la ayuda de una  app para llevar un control, esta mascarilla filtra\nel aire y detecta qué tan contaminado está el mismo dando la información si\neste es seguro mediante análisis de un sensor  y la presión del oxígeno, lo\nregula y lo estabiliza al mismo tiempo lleva el con\n");
+        jTextArea1.setAutoscrolls(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         btn_registrarce.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
@@ -105,10 +106,11 @@ public class frm_estructur extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btn_registrarce, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addComponent(btn_registrarce, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_imagen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
