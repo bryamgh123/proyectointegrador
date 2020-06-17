@@ -76,7 +76,6 @@ public class frm_qr extends javax.swing.JDialog {
         lblcodigoQR = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txt_generar = new javax.swing.JTextField();
-        generar = new javax.swing.JButton();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -120,13 +119,6 @@ public class frm_qr extends javax.swing.JDialog {
             }
         });
 
-        generar.setText("generar");
-        generar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,8 +127,6 @@ public class frm_qr extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(generar)
-                        .addGap(18, 18, 18)
                         .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cancelButton))
@@ -166,8 +156,7 @@ public class frm_qr extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
-                    .addComponent(okButton)
-                    .addComponent(generar))
+                    .addComponent(okButton))
                 .addContainerGap())
         );
 
@@ -226,27 +215,6 @@ public class frm_qr extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_generarActionPerformed
 
 
-    private void generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarActionPerformed
-
-//         login_usuario.frm_login kardex = new login_usuario.frm_login();
-//
-//        kardex.setVisible(true);
-//        login_usuario.frm_login.txt_correo.setText(kardex.txt_correo());
-                
-                    
-                
-                
-        metodos_sql.cls_metodos obj = new metodos_sql.cls_metodos();
-
-      //  String busqueda_nombre = obj.buscarNombre (  proyectointegrador.frm_ventas.txt_dni.getText());
-
-      //  txt_generar.setText(busqueda_nombre);
-        setVisible(true);
-        this.dispose();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_generarActionPerformed
-
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);
@@ -300,7 +268,6 @@ public class frm_qr extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton generar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblcodigoQR;
