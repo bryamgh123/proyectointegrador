@@ -27,7 +27,7 @@ public class frm_estructur extends javax.swing.JFrame {
         initComponents();
          setLocationRelativeTo(null);
         try {
-            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/verd.jpg")));
+            Proyectointegrador fondo = new Proyectointegrador(ImageIO.read(new File("imagenes/user.jpg")));
             JPanel panel = (JPanel) this.getContentPane();
             panel.setBorder(fondo);
         } catch (IOException ex) {
