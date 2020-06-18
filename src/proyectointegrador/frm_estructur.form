@@ -23,28 +23,31 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Component id="btn_registrarce" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="btn_registrarce" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="449" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
-                      <Component id="btn_compra" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                      <Component id="lbl_imagen" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="453" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+                      <Component id="btn_compra" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-              <Component id="lbl_imagen" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -52,18 +55,20 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_registrarce" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btn_registrarce" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbl_imagen" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="286" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="292" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btn_compra" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="9" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,7 +100,8 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="El proyecto est&#xe1; enfocado a la salud y ayuda a preservar la integridad de&#xa;la misma, mediante la creaci&#xf3;n de una mascarilla inteligente la cual tiene&#xa;como principal beneficio la purificaci&#xf3;n del aire que se respira.&#xa;Una mascarilla (a veces denominada respirador que no debe confundirse con&#xa;el ventilador mec&#xe1;nico) es un dispositivo dise&#xf1;ado para proteger al portador&#xa;de la inhalaci&#xf3;n atm&#xf3;sferas peligrosas, incluyendo humos, vapores,&#xa;gases y part&#xed;culas en suspensi&#xf3;n como polvos y microorganismos&#xa;bacterias y virus- aerotransportados as&#xed; como para proteger a los dem&#xe1;s&#xa;cuando el portador puede contagiar alguna enfermedad.&#xa;En esta parte planteamos la creaci&#xf3;n de prototipo de software de Mascarilla&#xa;Inteligente. mascarilla inteligente, esta proporciona informaci&#xf3;n al usuario&#xa;mediante la ayuda de una  app para llevar un control, esta mascarilla filtra&#xa;el aire y detecta qu&#xe9; tan contaminado est&#xe1; el mismo dando la informaci&#xf3;n si&#xa;este es seguro mediante an&#xe1;lisis de un sensor  y la presi&#xf3;n del ox&#xed;geno, lo&#xa;regula y lo estabiliza al mismo tiempo lleva el con&#xa;"/>
+            <Property name="text" type="java.lang.String" value="El proyecto est&#xe1; enfocado a la salud y ayuda a preservar la integridad de&#xa;la misma, mediante la creaci&#xf3;n de una mascarilla inteligente la cual tiene&#xa;como principal beneficio la purificaci&#xf3;n del aire que se respira.&#xa;Una mascarilla (a veces denominada respirador que no debe confundirse con&#xa;el ventilador mec&#xe1;nico) es un dispositivo dise&#xf1;ado para proteger al portador&#xa;de la inhalaci&#xf3;n atm&#xf3;sferas peligrosas, incluyendo humos, vapores,&#xa;gases y part&#xed;culas en suspensi&#xf3;n como polvos y microorganismos&#xa;bacterias y virus- aerotransportados as&#xed; como para proteger a los dem&#xe1;s&#xa;cuando el portador puede contagiar alguna enfermedad.&#xa;En esta parte planteamos la creaci&#xf3;n de prototipo de software de Mascarilla&#xa;Inteligente. mascarilla inteligente, esta proporciona informaci&#xf3;n al usuario&#xa;mediante la ayuda de una  app para llevar un control, esta mascarilla filtra&#xa;el aire y detecta qu&#xe9; tan contaminado est&#xe1; el mismo dando la informaci&#xf3;n si&#xa;este es seguro mediante an&#xe1;lisis de un sensor  y la presi&#xf3;n del ox&#xed;geno, lo&#xa;regula y lo estabiliza al mismo tiempo lleva el control exacto del tiempo de &#xa;duraci&#xf3;n de filtro, la bater&#xed;a de la misma puede durar m&#xe1;s de 24h y un filtro&#xa; de ellos 14h.&#xa;"/>
+            <Property name="autoscrolls" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

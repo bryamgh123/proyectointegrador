@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author ACER
  */
 public class frm_agregarmascarilla extends javax.swing.JFrame {
-    
+
     public static DefaultTableModel modelo;
     Controladores.TablaBusqVentaJpaController aggmasca = new Controladores.TablaBusqVentaJpaController();
 
@@ -75,6 +75,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
         btn_editar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_guardar = new javax.swing.JButton();
+        btn_reporte = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -268,6 +269,14 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             }
         });
 
+        btn_reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/periodico.png"))); // NOI18N
+        btn_reporte.setText("Reporte");
+        btn_reporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -279,6 +288,8 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_regresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_reporte)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_guardar)
                         .addGap(18, 18, 18)
                         .addComponent(btn_editar)
@@ -296,7 +307,8 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                     .addComponent(btn_regresar)
                     .addComponent(btn_editar)
                     .addComponent(btn_eliminar)
-                    .addComponent(btn_guardar))
+                    .addComponent(btn_guardar)
+                    .addComponent(btn_reporte))
                 .addGap(93, 93, 93))
         );
 
@@ -330,26 +342,26 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     private void txt_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_busqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_busqActionPerformed
- private void Clear() {
+    private void Clear() {
         txt_mode.setText("");
         txt_cara.setText("");
         txt_colo.setText("");
         txt_cant.setText("");
         txt_prec.setText("");
         txt_id.setText("");
- 
+
     }
- 
+
     private static boolean ban = false;
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-       
+
         try {
             if (txt_mode.getText().length() > 0) {
                 if (txt_cara.getText().length() > 0) {
-                    
+
                     if (ban == false) {
                         TablaBusqVenta obj = new TablaBusqVenta();
-                        
+
                         obj.setIdBusq(Integer.parseInt(txt_id.getText()));
                         obj.setModeBusq(txt_mode.getText());
                         obj.setCaraBusq(txt_cara.getText());
@@ -357,14 +369,14 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                         obj.setCantBusq(txt_cant.getText());
                         obj.setPrecBusq(txt_prec.getText());
                         aggmasca.create(obj);
-                        
+
                         createmodelo();
                         cargar_informacion();
                         Clear();
                     }
                     if (ban == true) {
                         TablaBusqVenta obj = new TablaBusqVenta();
-                        
+
                         obj.setIdBusq(Integer.parseInt(txt_id.getText()));
                         obj.setModeBusq(txt_mode.getText());
                         obj.setCaraBusq(txt_cara.getText());
@@ -372,14 +384,14 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
                         obj.setCantBusq(txt_cant.getText());
                         obj.setPrecBusq(txt_prec.getText());
                         aggmasca.edit(obj);
-                        
+
                         createmodelo();
                         cargar_informacion();
- 
+
                         ban = false;
                         Clear();
                     }
-                    
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingresela nombre");
                 }
@@ -394,7 +406,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
 
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
         try {
-            
+
             if (tabla.getSelectedRow() >= 0) {
                 txt_id.setText(tabla.getValueAt(tabla.getSelectedRow(), 0).toString());
                 txt_mode.setText(tabla.getValueAt(tabla.getSelectedRow(), 1).toString());
@@ -415,7 +427,7 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
         try {
             if (tabla.getSelectedRow() >= 0) {
-                
+
                 aggmasca.destroy(Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString()));
                 createmodelo();
                 cargar_informacion();
@@ -424,12 +436,12 @@ public class frm_agregarmascarilla extends javax.swing.JFrame {
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
-            
+
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_busqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busqActionPerformed
-cls_consultas obj = new cls_consultas(); 
+        cls_consultas obj = new cls_consultas();
         if (cbx_iten.getSelectedItem().equals("Todos")) {
             obj.Consulta("Tabla", tabla, "SELECT id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio  from tabla_busq_venta;");
         }
@@ -438,16 +450,23 @@ cls_consultas obj = new cls_consultas();
         }
         if (cbx_iten.getSelectedItem().equals("Modelos")) {
             obj.Consulta("Modelos", tabla, "SELECT  id_busq as ID, mode_busq as Modelo, cara_busq as Caracteristica, colo_busq as Color, cant_busq as Tamaño, prec_busq as Precio from tabla_busq_venta Where mode_busq like '%" + txt_busq.getText() + "%'");
-        }      
-        
-        
+        }
+
+
     }//GEN-LAST:event_btn_busqActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
-       login_usuario.frm_menu_administrar ventana = new login_usuario.frm_menu_administrar();
-       ventana.setVisible(true);
-       this.dispose();
+        login_usuario.frm_menu_administrar ventana = new login_usuario.frm_menu_administrar();
+        ventana.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteActionPerformed
+        cls_AdminReporte report = new cls_AdminReporte();
+        report.Reporte("src\\proyectointegrador\\rpt_aggmascarilla.jasper");
+
+
+    }//GEN-LAST:event_btn_reporteActionPerformed
     private void createmodelo() {
         try {
             modelo = (new DefaultTableModel(null, new String[]{"ID", "Modelo", "Caracteristica", "Color", "Cantidad", "Precio"}) {
@@ -460,12 +479,12 @@ cls_consultas obj = new cls_consultas();
                     java.lang.String.class
                 };
                 boolean[] canEdit = new boolean[]{false, false, false, false, false, false};
-                
+
                 @Override
                 public Class getColumnClass(int columnindex) {
                     return types[columnindex];
                 }
-                
+
                 @Override
                 public boolean isCellEditable(int rowindex, int colindex) {
                     return canEdit[colindex];
@@ -476,7 +495,7 @@ cls_consultas obj = new cls_consultas();
             JOptionPane.showMessageDialog(null, ex.toString() + "error2");
         }
     }
-    
+
     private void cargar_informacion() {
         try {
             Object[] o = null;
@@ -536,6 +555,7 @@ cls_consultas obj = new cls_consultas();
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_regresar;
+    private javax.swing.JButton btn_reporte;
     private javax.swing.JComboBox cbx_iten;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

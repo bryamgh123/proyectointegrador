@@ -31,7 +31,7 @@ public class frm_estructur extends javax.swing.JFrame {
             JPanel panel = (JPanel) this.getContentPane();
             panel.setBorder(fondo);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no se econtro la imagen", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error no cargo fondo", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -60,7 +60,8 @@ public class frm_estructur extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("El proyecto está enfocado a la salud y ayuda a preservar la integridad de\nla misma, mediante la creación de una mascarilla inteligente la cual tiene\ncomo principal beneficio la purificación del aire que se respira.\nUna mascarilla (a veces denominada respirador que no debe confundirse con\nel ventilador mecánico) es un dispositivo diseñado para proteger al portador\nde la inhalación atmósferas peligrosas, incluyendo humos, vapores,\ngases y partículas en suspensión como polvos y microorganismos\nbacterias y virus- aerotransportados así como para proteger a los demás\ncuando el portador puede contagiar alguna enfermedad.\nEn esta parte planteamos la creación de prototipo de software de Mascarilla\nInteligente. mascarilla inteligente, esta proporciona información al usuario\nmediante la ayuda de una  app para llevar un control, esta mascarilla filtra\nel aire y detecta qué tan contaminado está el mismo dando la información si\neste es seguro mediante análisis de un sensor  y la presión del oxígeno, lo\nregula y lo estabiliza al mismo tiempo lleva el con\n");
+        jTextArea1.setText("El proyecto está enfocado a la salud y ayuda a preservar la integridad de\nla misma, mediante la creación de una mascarilla inteligente la cual tiene\ncomo principal beneficio la purificación del aire que se respira.\nUna mascarilla (a veces denominada respirador que no debe confundirse con\nel ventilador mecánico) es un dispositivo diseñado para proteger al portador\nde la inhalación atmósferas peligrosas, incluyendo humos, vapores,\ngases y partículas en suspensión como polvos y microorganismos\nbacterias y virus- aerotransportados así como para proteger a los demás\ncuando el portador puede contagiar alguna enfermedad.\nEn esta parte planteamos la creación de prototipo de software de Mascarilla\nInteligente. mascarilla inteligente, esta proporciona información al usuario\nmediante la ayuda de una  app para llevar un control, esta mascarilla filtra\nel aire y detecta qué tan contaminado está el mismo dando la información si\neste es seguro mediante análisis de un sensor  y la presión del oxígeno, lo\nregula y lo estabiliza al mismo tiempo lleva el control exacto del tiempo de \nduración de filtro, la batería de la misma puede durar más de 24h y un filtro\n de ellos 14h.\n");
+        jTextArea1.setAutoscrolls(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         btn_registrarce.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
@@ -83,39 +84,41 @@ public class frm_estructur extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(57, 57, 57)
-                .addComponent(btn_registrarce))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(57, 57, 57)
+                        .addComponent(btn_registrarce))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(btn_compra))
+                        .addGap(109, 109, 109)
+                        .addComponent(lbl_imagen))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(lbl_imagen)
+                        .addGap(201, 201, 201)
+                        .addComponent(btn_compra)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btn_registrarce, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addComponent(btn_registrarce, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_imagen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();

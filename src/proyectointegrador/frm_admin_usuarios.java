@@ -58,6 +58,7 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
         tabla = new javax.swing.JTable();
         btn_eliminar = new javax.swing.JButton();
         btn_regresar = new javax.swing.JButton();
+        btn_reporte = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btn_buscar = new javax.swing.JButton();
         txt_busq = new javax.swing.JTextField();
@@ -120,6 +121,14 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
             }
         });
 
+        btn_reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/periodico.png"))); // NOI18N
+        btn_reporte.setText("Reporte");
+        btn_reporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -133,6 +142,8 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_regresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_reporte)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -143,7 +154,9 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_regresar)
-                    .addComponent(btn_eliminar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_eliminar)
+                        .addComponent(btn_reporte)))
                 .addGap(32, 32, 32))
         );
 
@@ -263,6 +276,15 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
         
     }//GEN-LAST:event_btn_buscarActionPerformed
 
+    private void btn_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteActionPerformed
+try{
+    cls_AdminReporte report=new cls_AdminReporte();
+report.Reporte("src\\proyectointegrador\\rpt_UsuariosAdmin.jasper");
+}catch(Exception ex){
+    JOptionPane.showMessageDialog(this,"Error al cargar reporte");
+}
+    }//GEN-LAST:event_btn_reporteActionPerformed
+
      private void createmodelo() {
         try {
             modelo = (new DefaultTableModel(null, new String[]{"Nick", "Apellido", "Correo", "Contraseña"}) {
@@ -347,6 +369,7 @@ Controladores.UsuariosJpaController user=new  Controladores.UsuariosJpaControlle
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_regresar;
+    private javax.swing.JButton btn_reporte;
     private javax.swing.JComboBox cbx_iten;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
